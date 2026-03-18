@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Account | Better Way Dental Lab</title>
+  <meta name="description" content="Create an account or log in to submit dental lab cases securely.">
+  <link rel="canonical" href="https://www.betterwaydentallab.com/account.html">
+  <meta property="og:title" content="Account | Better Way Dental Lab">
+  <meta property="og:description" content="Sign up or log in to submit cases.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.betterwaydentallab.com/account.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body data-page="account">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a aria-label="Better Way Dental Lab home" class="brand brand-logo-link" href="/">
+        <img class="brand-logo brand-logo-wide" src="/assets/images/New%20Logo%20Concept.png" alt="Better Way Dental Lab logo">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="home" href="/index.html">Home</a>
+        <a data-nav="services" href="/services.html">Services</a>
+        <a data-nav="workflow" href="/workflow.html">Workflow</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="support-menu" data-nav="terms">Support</button>
+          <div class="nav-dropdown-menu" id="support-menu" role="menu">
+            <a href="/contact.html" role="menuitem">Contact Us</a>
+            <a href="/terms-of-service.html" role="menuitem">Terms of Service</a>
+          </div>
+        </div>
+        <a data-nav="about" href="/about.html">About</a>
+      </nav>
+      <div class="header-actions">
+      <a class="btn btn-outline btn-case-header" href="/case-submission.html" data-event="click_submit_case_cta">Case Submission</a>
+      <a class="btn btn-outline" href="/account.html?action=login" data-auth-login="true" data-event="click_login_cta">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container section-title" data-reveal>
+        <span class="kicker">Secure Customer Access</span>
+        <h1>Create an account or log in before submitting a case.</h1>
+        <p class="lead">Your account secures case access and ties each submission to your verified user profile.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="panel" data-reveal>
+          <h2>Account Actions</h2>
+          <p class="lead">Use the buttons below to sign up, log in, or log out.</p>
+          <p id="authMessage" class="notice" style="margin-top: 1rem; display: none;"></p>
+          <div class="hero-cta" style="margin-top: 1rem;">
+            <button id="signupBtn" class="btn btn-primary" type="button">Create Account</button>
+            <button id="loginBtn" class="btn btn-outline" type="button">Log In</button>
+            <button id="logoutBtn" class="btn btn-outline" type="button" style="display: none;">Log Out</button>
+          </div>
+        </article>
+
+        <article class="panel" data-reveal>
+          <h2>Current Session</h2>
+          <ul class="contact-list" style="margin-top: 0.85rem;">
+            <li>Status: <strong id="sessionStatus">Checking...</strong></li>
+            <li>Email: <strong id="sessionEmail">Not logged in</strong></li>
+          </ul>
+          <div class="hero-cta" style="margin-top: 1rem;">
+            <a class="btn btn-primary" href="/case-submission.html" id="continueBtn">Continue to Case Submission</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3 style="color: #fff;">Better Way Dental Lab</h3>
+        <p style="margin-top: 0.65rem;">Secure account-based case intake for partner practices.</p>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Explore</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/workflow.html">Workflow</a></li>
+          <li><a href="/case-submission.html">Case Submission</a></li>
+        </ul>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Contact</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
+          <li><a href="mailto:Office@betterwaydentallab.com" data-event="click_email">Office@betterwaydentallab.com</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="container footer-meta">
+      <span>&copy; <span id="year"></span> Better Way Dental Lab.</span>
+      <span><a href="/contact.html">Contact the lab team</a></span>
+    </div>
+  </footer>
+
+  <script>window.BWDL_GA4_ID = "G-XXXXXXXXXX";</script>
+  <script defer src="/assets/js/main.js"></script>
+</body>
+</html>

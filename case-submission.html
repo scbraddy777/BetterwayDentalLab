@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Submission | Better Way Dental Lab</title>
+  <meta name="description" content="Submit case details to Better Way Dental Lab. Our team responds quickly with recommended next steps and timeline guidance.">
+  <link rel="canonical" href="https://www.betterwaydentallab.com/case-submission.html">
+  <meta property="og:title" content="Case Submission | Better Way Dental Lab">
+  <meta property="og:description" content="Start a new restorative case with Better Way Dental Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.betterwaydentallab.com/case-submission.html">
+  <script>
+    (function () {
+      var docEl = document.documentElement;
+      docEl.style.visibility = "hidden";
+
+      function safeReturnPath(url) {
+        if (!url || typeof url !== "string") {
+          return "/case-submission.html";
+        }
+        if (!url.startsWith("/") || url.startsWith("//")) {
+          return "/case-submission.html";
+        }
+        return url;
+      }
+
+      var returnTo = safeReturnPath(window.location.pathname + window.location.search);
+      var accountHref = "/account.html?action=login&returnTo=" + encodeURIComponent(returnTo) +
+        "&message=" + encodeURIComponent("Please create an account or log in to submit a case.");
+      var settled = false;
+
+      function allowRender() {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        docEl.style.visibility = "";
+      }
+
+      function redirectToAccount() {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        window.location.replace(accountHref);
+      }
+
+      function evaluateIdentity(identity) {
+        if (!identity) {
+          redirectToAccount();
+          return;
+        }
+
+        try {
+          var existingUser = typeof identity.currentUser === "function" ? identity.currentUser() : null;
+          if (existingUser) {
+            allowRender();
+            return;
+          }
+
+          var timeoutId = window.setTimeout(redirectToAccount, 1200);
+          if (typeof identity.on !== "function") {
+            window.clearTimeout(timeoutId);
+            redirectToAccount();
+            return;
+          }
+
+          identity.on("init", function (user) {
+            if (settled) {
+              return;
+            }
+            window.clearTimeout(timeoutId);
+            if (user) {
+              allowRender();
+              return;
+            }
+            redirectToAccount();
+          });
+
+          if (typeof identity.init === "function") {
+            identity.init();
+          }
+        } catch (_err) {
+          redirectToAccount();
+        }
+      }
+
+      if (window.netlifyIdentity) {
+        evaluateIdentity(window.netlifyIdentity);
+        return;
+      }
+
+      var script = document.createElement("script");
+      script.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+      script.async = true;
+      script.onload = function () {
+        evaluateIdentity(window.netlifyIdentity);
+      };
+      script.onerror = redirectToAccount;
+      document.head.appendChild(script);
+      window.setTimeout(function () {
+        if (!settled) {
+          redirectToAccount();
+        }
+      }, 1500);
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body data-page="case-submission">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a aria-label="Better Way Dental Lab home" class="brand brand-logo-link" href="/">
+        <img class="brand-logo brand-logo-wide" src="/assets/images/New%20Logo%20Concept.png" alt="Better Way Dental Lab logo">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="home" href="/index.html">Home</a>
+        <a data-nav="services" href="/services.html">Services</a>
+        <a data-nav="workflow" href="/workflow.html">Workflow</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="support-menu" data-nav="terms">Support</button>
+          <div class="nav-dropdown-menu" id="support-menu" role="menu">
+            <a href="/contact.html" role="menuitem">Contact Us</a>
+            <a href="/terms-of-service.html" role="menuitem">Terms of Service</a>
+          </div>
+        </div>
+        <a data-nav="about" href="/about.html">About</a>
+      </nav>
+      <div class="header-actions">
+      <a class="btn btn-outline btn-case-header" href="/case-submission.html" data-event="click_submit_case_cta">Case Submission</a>
+      <a class="btn btn-outline" href="/account.html?action=login" data-auth-login="true" data-event="click_login_cta">Log in</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <form name="case-submission-auth" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="bot-field">
+      <input type="text" name="case_id">
+      <textarea name="rx_slip_json"></textarea>
+      <input type="text" name="auth_user_id">
+      <input type="text" name="auth_user_email">
+      <input type="text" name="submitted_at">
+    </form>
+
+    <section class="page-hero">
+      <div class="container section-title" data-reveal>
+        <span class="kicker">New Case Intake</span>
+        <h1>Send your case details and receive a prompt technical response.</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="panel" data-reveal>
+          <h2>Digital Case Submission</h2>
+          <form id="digitalCaseForm" name="digital-case-submission" class="form-grid rx-form">
+            <div class="rx-grid">
+              <fieldset class="rx-section">
+                <legend>Provider / Office</legend>
+                <div class="field">
+                  <label for="drName">Dr.</label>
+                  <input id="drName" name="dr_name" type="text" autocomplete="organization-title">
+                </div>
+                <div class="field">
+                  <label for="officePhone">Office Phone:</label>
+                  <input id="officePhone" name="office_phone" type="text" autocomplete="tel">
+                </div>
+                <div class="field">
+                  <label for="officeAddress">Address:</label>
+                  <input id="officeAddress" name="office_address" type="text" autocomplete="street-address">
+                </div>
+                <div class="field">
+                  <label for="dueDate">Due Date:</label>
+                  <input id="dueDate" name="due_date" type="date">
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Patient / Case</legend>
+                <div class="field">
+                  <label for="patientLast">Patient: (Last)</label>
+                  <input id="patientLast" name="patient_last" type="text" autocomplete="family-name">
+                </div>
+                <div class="field">
+                  <label for="patientFirst">(First)</label>
+                  <input id="patientFirst" name="patient_first" type="text" autocomplete="given-name">
+                </div>
+                <div class="field">
+                  <label for="caseNumber">Case #:</label>
+                  <input id="caseNumber" name="case_number" type="text">
+                </div>
+                <div class="field">
+                  <label for="officeUseOnly">Office Use Only:</label>
+                  <input id="officeUseOnly" name="office_use_only" type="text">
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Restoration Type</legend>
+                <div class="option-grid two-col">
+                  <label><input type="checkbox" name="restoration_type" value="Crown"> Crown</label>
+                  <label><input type="checkbox" name="restoration_type" value="Bridge"> Bridge</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Material selection</legend>
+                <div class="option-grid">
+                  <label><input type="checkbox" name="material_selection" value="Full Contour Zirconia"> Full Contour Zirconia</label>
+                  <label><input type="checkbox" name="material_selection" value="Layered Zirconia"> Layered Zirconia</label>
+                  <label><input type="checkbox" name="material_selection" value="Full Lithium Disilicate"> Full Lithium Disilicate</label>
+                  <label><input type="checkbox" name="material_selection" value="Layered Lithium Disilicate"> Layered Lithium Disilicate</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Tooth + Shade</legend>
+                <div class="field">
+                  <label for="shade">Shade</label>
+                  <input id="shade" name="shade" type="text">
+                </div>
+                <div class="field">
+                  <label for="toothNumbers">Tooth #(s)</label>
+                  <input id="toothNumbers" name="tooth_numbers" type="text">
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Occlusal Contact</legend>
+                <div class="option-grid two-col">
+                  <label><input type="checkbox" name="occlusal_contact" value="In Occlusion"> In Occlusion</label>
+                  <label><input type="checkbox" name="occlusal_contact" value="Light Occlusion"> Light Occlusion</label>
+                  <label><input type="checkbox" name="occlusal_contact" value="Out 0.3 mm"> Out 0.3 mm</label>
+                  <label><input type="checkbox" name="occlusal_contact" value="Out 0.5 mm"> Out 0.5 mm</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section rx-section-wide">
+                <legend>Pontic Design</legend>
+                <div class="pontic-grid">
+                  <div class="pontic-item">
+                    <img class="pontic-icon" src="/assets/images/pontic-1.png" alt="Pontic Design option 1">
+                    <label class="pontic-check"><input type="checkbox" name="pontic_checked_1" value="checked"> Check</label>
+                  </div>
+                  <div class="pontic-item">
+                    <img class="pontic-icon" src="/assets/images/pontic-2.png" alt="Pontic Design option 2">
+                    <label class="pontic-check"><input type="checkbox" name="pontic_checked_2" value="checked"> Check</label>
+                  </div>
+                  <div class="pontic-item">
+                    <img class="pontic-icon" src="/assets/images/pontic-3.png" alt="Pontic Design option 3">
+                    <label class="pontic-check"><input type="checkbox" name="pontic_checked_3" value="checked"> Check</label>
+                  </div>
+                  <div class="pontic-item">
+                    <img class="pontic-icon" src="/assets/images/pontic-4.png" alt="Pontic Design option 4">
+                    <label class="pontic-check"><input type="checkbox" name="pontic_checked_4" value="checked"> Check</label>
+                  </div>
+                  <div class="pontic-item">
+                    <img class="pontic-icon" src="/assets/images/pontic-5.png" alt="Pontic Design option 5">
+                    <label class="pontic-check"><input type="checkbox" name="pontic_checked_5" value="checked"> Check</label>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Interproximal Pressure</legend>
+                <div class="option-grid two-col">
+                  <label><input type="checkbox" name="interproximal_pressure" value="Normal"> Normal</label>
+                  <label><input type="checkbox" name="interproximal_pressure" value="Broad/Tight"> Broad/Tight</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Implants</legend>
+                <div class="field">
+                  <label for="implantSystem">Indicate Implant System:</label>
+                  <input id="implantSystem" name="implant_system" type="text">
+                </div>
+                <div class="field">
+                  <label for="implantPlatformSize">Implant Platform: Size</label>
+                  <input id="implantPlatformSize" name="implant_platform_size" type="text">
+                </div>
+                <div class="field">
+                  <label for="implantPlatformLength">Implant Platform: Length</label>
+                  <input id="implantPlatformLength" name="implant_platform_length" type="text">
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Implant Abutment</legend>
+                <div class="option-grid">
+                  <label><input type="checkbox" name="implant_abutment" value="Custom Titanium Abutment"> Custom Titanium Abutment</label>
+                  <label><input type="checkbox" name="implant_abutment" value="Custom Zirconia Abutment"> Custom Zirconia Abutment</label>
+                  <label><input type="checkbox" name="implant_abutment" value="Anodized"> Anodized</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Implant Crown Type</legend>
+                <div class="option-grid two-col">
+                  <label><input type="checkbox" name="implant_crown_type" value="Screw Retained"> Screw Retained</label>
+                  <label><input type="checkbox" name="implant_crown_type" value="Cement Retained"> Cement Retained</label>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section rx-section-wide">
+                <legend>NOTES:</legend>
+                <div class="field">
+                  <textarea id="notes" name="notes" rows="5"></textarea>
+                </div>
+              </fieldset>
+
+              <fieldset class="rx-section">
+                <legend>Signoff</legend>
+                <div class="field">
+                  <label for="drSignature">Dr. Signature:</label>
+                  <input id="drSignature" name="dr_signature" type="text">
+                </div>
+                <div class="field">
+                  <label for="assistant">Assistant:</label>
+                  <input id="assistant" name="assistant" type="text">
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="review-actions">
+              <button class="btn btn-outline" type="button" id="reviewRxBtn">Review Digital RX</button>
+              <button class="btn btn-primary" type="submit" id="submitRxBtn" data-event="click_submit_case_cta" disabled>Submit Digital Case</button>
+            </div>
+            <p class="status-message" data-form-status aria-live="polite"></p>
+            <section id="reviewPanel" class="rx-review" aria-live="polite" hidden>
+              <h3>Review Summary</h3>
+              <div id="reviewSummary" class="rx-review-body"></div>
+            </section>
+          </form>
+        </article>
+
+        <aside class="stack" data-reveal>
+          <article class="card">
+            <h3>Download Printable Lab RX Slip</h3>
+            <p style="margin-top: 0.85rem;">Use our printable RX slip for physical case submissions and include it in the case package.</p>
+            <div class="hero-cta" style="margin-top: 1rem;">
+              <a class="btn btn-outline" href="/assets/pdfs/BWDL%20RX.pdf" download data-event="click_download_rx_slip">Download Lab RX Slip (PDF)</a>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Before You Submit</h3>
+            <ul class="checklist" style="margin-top: 0.85rem;">
+              <li>Review all sections to ensure your digital RX matches the printed slip.</li>
+              <li>Use “Review Digital RX” before final submission.</li>
+              <li>If submitting for bridge cases, complete Pontic Design selections.</li>
+              <li>Include implant details when applicable.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Direct Contact Options</h3>
+            <ul class="contact-list" style="margin-top: 0.85rem;">
+              <li>Phone: <a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
+              <li>Email: <a href="mailto:Office@betterwaydentallab.com" data-event="click_email">Office@betterwaydentallab.com</a></li>
+              <li>Service area: practices nationwide</li>
+            </ul>
+          </article>
+          <article class="notice">If you are submitting digital scans through a third-party portal, mention that in your message so the team can coordinate correctly.</article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3 style="color: #fff;">Better Way Dental Lab</h3>
+        <p style="margin-top: 0.65rem;">Fast, clear case communication with reliable restorative delivery standards.</p>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Resources</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/workflow.html">Workflow</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Contact</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
+          <li><a href="mailto:Office@betterwaydentallab.com" data-event="click_email">Office@betterwaydentallab.com</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="container footer-meta">
+      <span>&copy; <span id="year"></span> Better Way Dental Lab.</span>
+      <span><a href="/contact.html">Contact the lab team</a></span>
+    </div>
+  </footer>
+
+  <script>window.BWDL_GA4_ID = "G-XXXXXXXXXX";</script>
+  <script defer src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/digital-case-submission.js"></script>
+</body>
+</html>

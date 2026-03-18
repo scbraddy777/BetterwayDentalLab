@@ -1,0 +1,72 @@
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+
+[[redirects]]
+  from = "/case-submission"
+  to = "/case-submission.html"
+  status = 200
+
+[[redirects]]
+  from = "/case-submission/"
+  to = "/case-submission.html"
+  status = 200
+
+[[redirects]]
+  from = "/submit-case"
+  to = "/case-submission.html"
+  status = 200
+
+[[redirects]]
+  from = "/submit-case/"
+  to = "/case-submission.html"
+  status = 200
+
+[[redirects]]
+  from = "/account"
+  to = "/account.html"
+  status = 200
+
+[[redirects]]
+  from = "/account/"
+  to = "/account.html"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/account.html?action=login"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/account.html?action=signup"
+  status = 200
+
+[[redirects]]
+  from = "/logout"
+  to = "/account.html?action=logout"
+  status = 200
+
+[[redirects]]
+  from = "/api/create-upload-url"
+  to = "/.netlify/functions/create-upload-url"
+  status = 200
+
+[[redirects]]
+  from = "/api/submit-case"
+  to = "/.netlify/functions/submit-case"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
