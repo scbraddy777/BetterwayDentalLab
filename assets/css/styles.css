@@ -167,11 +167,11 @@ img {
 }
 
 .nav-wrap {
-  min-height: 97px;
+  min-height: clamp(78px, 8.6vw, 97px);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: clamp(0.45rem, 0.9vw, 1rem);
   position: relative;
   overflow: visible;
 }
@@ -193,7 +193,7 @@ img {
 
 .brand-logo {
   display: block;
-  height: 104px;
+  height: clamp(82px, 9vw, 104px);
   width: auto;
   max-width: min(62vw, 760px);
   object-fit: contain;
@@ -201,7 +201,7 @@ img {
 
 .brand-logo-wide {
   display: block;
-  height: 162px;
+  height: clamp(118px, 13.6vw, 162px);
   max-width: min(66.6vw, 821px);
   width: auto;
   object-fit: contain;
@@ -245,15 +245,15 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.15rem;
-  flex-wrap: wrap;
+  gap: clamp(0.02rem, 0.15vw, 0.15rem);
+  flex-wrap: nowrap;
 }
 
 .nav-links a,
 .nav-dropdown-toggle {
-  font-size: 1.03rem;
+  font-size: clamp(0.93rem, 1.02vw, 1.03rem);
   color: var(--header-text);
-  padding: 0.5rem 0.74rem;
+  padding: clamp(0.36rem, 0.45vw, 0.5rem) clamp(0.46rem, 0.72vw, 0.74rem);
   border-radius: 999px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -312,7 +312,8 @@ img {
 }
 
 .site-header .btn {
-  font-size: 0.95rem;
+  font-size: clamp(0.84rem, 0.95vw, 0.95rem);
+  padding-inline: clamp(0.82rem, 1vw, 1.22rem);
 }
 
 .nav-links a:hover,
@@ -349,12 +350,12 @@ img {
   margin-left: auto;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: clamp(0.35rem, 0.5vw, 0.5rem);
   flex-wrap: nowrap;
 }
 
 .header-actions .btn {
-  min-width: 139px;
+  min-width: clamp(118px, 11vw, 139px);
   white-space: nowrap;
   text-align: center;
 }
@@ -1206,105 +1207,13 @@ select:focus {
   transform: translateY(0);
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1040px) {
   .hero-grid,
   .grid-3,
   .grid-2,
   .footer-grid,
   .highlight-band {
     grid-template-columns: 1fr;
-  }
-
-  .nav-wrap {
-    min-height: auto;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    row-gap: 0.35rem;
-    padding-block: 0.55rem;
-  }
-
-  .nav-links {
-    display: grid;
-    order: 2;
-    width: 100%;
-    max-width: 100%;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: center;
-    align-items: center;
-    overflow-x: visible;
-    column-gap: 0.08rem;
-    row-gap: 0.08rem;
-    padding-bottom: 0;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .nav-links a,
-  .nav-dropdown-toggle {
-    white-space: nowrap;
-    font-size: 0.94rem;
-    padding: 0.38rem 0.58rem;
-  }
-
-  .nav-dropdown {
-    width: auto;
-    flex-direction: row;
-    align-items: center;
-    justify-self: center;
-  }
-
-  .nav-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 0.35rem);
-    left: auto;
-    right: 0;
-    min-width: min(240px, calc(100vw - 1rem));
-    max-width: calc(100vw - 1rem);
-    margin-top: 0.35rem;
-    transform: translateY(8px);
-    box-shadow: 0 12px 28px rgba(7, 16, 32, 0.12);
-  }
-
-  .site-header .btn {
-    order: 0;
-    margin-left: 0;
-    padding-inline: 0.83rem;
-    font-size: 0.85rem;
-  }
-
-  .header-actions {
-    order: 3;
-    margin-left: 0;
-    width: auto;
-    max-width: 100%;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    justify-content: center;
-  }
-
-  .header-actions .btn {
-    min-width: 0;
-    white-space: nowrap;
-  }
-
-  .brand-logo-link {
-    order: 1;
-    width: auto;
-    justify-content: center;
-  }
-
-  .brand-logo {
-    width: auto;
-    height: auto;
-    max-width: min(80vw, 360px);
-  }
-
-  .brand-logo-wide {
-    width: auto;
-    height: auto;
-    max-width: min(74vw, 320px);
-    transform: none;
   }
 
   .hero {
@@ -1335,23 +1244,88 @@ select:focus {
 
 @media (max-width: 720px) {
   .nav-wrap {
+    min-height: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     row-gap: 0.3rem;
     padding-block: 0.45rem;
   }
 
+  .nav-links {
+    display: grid;
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(4, max-content);
+    justify-content: center;
+    align-items: center;
+    overflow-x: visible;
+    column-gap: 0.08rem;
+    row-gap: 0.08rem;
+    padding-bottom: 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .nav-links a,
   .nav-dropdown-toggle {
+    white-space: nowrap;
     font-size: 0.88rem;
     padding: 0.3rem 0.44rem;
   }
 
-  .header-actions .btn {
+  .nav-dropdown {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-self: center;
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: auto;
+    right: 0;
+    min-width: min(240px, calc(100vw - 1rem));
+    max-width: calc(100vw - 1rem);
+    margin-top: 0.35rem;
+    transform: translateY(8px);
+    box-shadow: 0 12px 28px rgba(7, 16, 32, 0.12);
+  }
+
+  .site-header .btn {
+    order: 0;
+    margin-left: 0;
     font-size: 0.8rem;
     padding-inline: 0.74rem;
   }
 
+  .header-actions {
+    order: 3;
+    margin-left: 0;
+    width: auto;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+  }
+
+  .header-actions .btn {
+    min-width: 0;
+    white-space: nowrap;
+  }
+
+  .brand-logo-link {
+    order: 1;
+    width: auto;
+    justify-content: center;
+  }
+
   .brand-logo-wide,
   .brand-logo {
+    width: auto;
+    height: auto;
     max-width: min(70vw, 290px);
   }
 
