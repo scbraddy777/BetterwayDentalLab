@@ -1257,10 +1257,12 @@ select:focus {
   .nav-dropdown-menu {
     position: absolute;
     top: calc(100% + 0.35rem);
-    left: 50%;
-    min-width: min(280px, calc(100vw - 2rem));
+    left: auto;
+    right: 0;
+    min-width: min(240px, calc(100vw - 1rem));
+    max-width: calc(100vw - 1rem);
     margin-top: 0.35rem;
-    transform: translateX(-50%) translateY(8px);
+    transform: translateY(8px);
     box-shadow: 0 12px 28px rgba(7, 16, 32, 0.12);
   }
 
