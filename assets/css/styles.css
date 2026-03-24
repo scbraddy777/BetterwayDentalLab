@@ -629,6 +629,10 @@ p {
   overflow: hidden;
 }
 
+.process-item h3 {
+  margin-top: 0.4rem;
+}
+
 .process-item::before {
   content: attr(data-step);
   display: inline-block;
@@ -640,7 +644,7 @@ p {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
-  margin-bottom: 1.05rem;
+  margin-bottom: 2.15rem;
 }
 
 .badge-row {
