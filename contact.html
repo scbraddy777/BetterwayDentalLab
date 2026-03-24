@@ -25,7 +25,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a data-nav="home" href="/index.html">Home</a>
         <a data-nav="services" href="/services.html">Services</a>
-        <a data-nav="workflow" href="/workflow.html">Workflow</a>
+        <a data-nav="about" href="/about.html">About Us</a>
         <div class="nav-dropdown" data-nav-dropdown>
           <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="support-menu" data-nav="terms">Support</button>
           <div class="nav-dropdown-menu" id="support-menu" role="menu">
@@ -33,11 +33,10 @@
             <a href="/terms-of-service.html" role="menuitem">Terms of Service</a>
           </div>
         </div>
-        <a data-nav="about" href="/about.html">About</a>
       </nav>
       <div class="header-actions">
-      <a class="btn btn-outline btn-case-header" href="/case-submission.html" data-event="click_submit_case_cta">Case Submission</a>
-      <a class="btn btn-outline" href="/account.html?action=login" data-auth-login="true" data-event="click_login_cta">Log in</a>
+      <a class="btn btn-outline btn-portal-header" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Dentist Portal</a>
+      <a class="btn btn-outline btn-rx-header" href="/assets/pdfs/BWDL%20RX.pdf" download="BWDL RX.pdf" data-event="click_download_rx_slip">Download Lab RX</a>
       </div>
     </div>
   </header>
@@ -45,9 +44,9 @@
   <main>
     <section class="page-hero">
       <div class="container section-title" data-reveal>
-        <span class="kicker">Contact The Lab Team</span>
-        <h1>Get direct support for case planning, account setup, and turnaround questions.</h1>
-        <p class="lead">Use the contact options below or send a message form if your request is not tied to an immediate case submission.</p>
+        <span class="kicker">CONTACT</span>
+        <h1>Reach the lab team directly for questions, setup, and next steps.</h1>
+        <p class="lead">Use the options below for account setup, service questions, or general support. For new restorative cases, the Dentist Portal is the fastest path.</p>
       </div>
     </section>
 
@@ -57,31 +56,27 @@
           <h2>Direct Contact</h2>
           <ul class="contact-list" style="margin-top: 0.9rem;">
             <li>Phone: <a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
-            <li>Email: <a href="mailto:Office@betterwaydentallab.com" data-event="click_email">Office@betterwaydentallab.com</a></li>
+            <li>Email: <a href="mailto:BetterWayDentalLab@gmail.com" data-event="click_email">BetterWayDentalLab@gmail.com</a></li>
             <li>Service area: dental practices nationwide</li>
             <li>Typical response: 1-2 business days</li>
           </ul>
-          <div class="notice" style="margin-top: 1rem;">For new restorative cases, use the dedicated Case Submission page to ensure faster triage.</div>
+          <div class="notice" style="margin-top: 1rem;">Use the Dentist Portal for new case intake and faster triage.</div>
           <div class="hero-cta">
-            <a class="btn btn-outline" href="/case-submission.html" data-event="click_submit_case_cta">Go To Case Submission</a>
+            <a class="btn btn-outline" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Open Dentist Portal</a>
           </div>
         </article>
 
         <article class="panel" data-reveal>
-          <h2>General Inquiry Form</h2>
+          <h2>Send a General Inquiry</h2>
           <form
-            name="contact-inquiry"
+            action="https://api.web3forms.com/submit"
             method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            action="/thank-you.html"
             class="form-grid"
             data-track-form
           >
-            <input type="hidden" name="form-name" value="contact-inquiry">
-            <p class="hidden-field">
-              <label>Do not fill this out if you are human: <input name="bot-field"></label>
-            </p>
+            <input type="hidden" name="access_key" value="3c8226d7-aab1-44be-a758-4da1bcc221b5">
+            <input type="hidden" name="subject" value="Better Way Dental Lab General Inquiry">
+            <input type="hidden" name="redirect" value="https://www.betterwaydentallab.com/thank-you.html">
 
             <div class="field">
               <label for="contact-name">Name / Practice *</label>
@@ -147,13 +142,13 @@
         <h4 style="color: #fff;">Contact</h4>
         <ul class="utility-links" style="margin-top: 0.65rem;">
           <li><a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
-          <li><a href="mailto:Office@betterwaydentallab.com" data-event="click_email">Office@betterwaydentallab.com</a></li>
+          <li><a href="mailto:BetterWayDentalLab@gmail.com" data-event="click_email">BetterWayDentalLab@gmail.com</a></li>
         </ul>
       </section>
     </div>
     <div class="container footer-meta">
       <span>&copy; <span id="year"></span> Better Way Dental Lab.</span>
-      <span><a href="/case-submission.html">Submit a case</a></span>
+      <span><a href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Dentist Portal</a></span>
     </div>
   </footer>
 
