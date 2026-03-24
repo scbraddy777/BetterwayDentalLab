@@ -135,7 +135,7 @@ img {
 }
 
 .container {
-  width: min(var(--max), calc(100% - 2.5rem));
+  width: min(var(--max), calc(100% - clamp(1rem, 2.5vw, 2.5rem)));
   margin: 0 auto;
 }
 
@@ -479,12 +479,12 @@ img {
 }
 
 .hero {
-  padding: 4.8rem 0 3.8rem;
+  padding: clamp(3.4rem, 5vw, 4.8rem) 0 clamp(2.8rem, 4vw, 3.8rem);
 }
 
 .hero-grid {
   display: grid;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   grid-template-columns: 1.08fr 0.92fr;
   align-items: center;
 }
@@ -533,7 +533,7 @@ p {
 
 .lead {
   margin-top: 1.1rem;
-  font-size: 1.08rem;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
   color: var(--muted);
   max-width: 58ch;
 }
@@ -541,7 +541,7 @@ p {
 .hero-cta {
   margin-top: 1.7rem;
   display: flex;
-  gap: 0.8rem;
+  gap: clamp(0.55rem, 0.9vw, 0.8rem);
   flex-wrap: wrap;
 }
 
@@ -561,7 +561,7 @@ p {
 
 .hero-card img {
   width: 100%;
-  height: 420px;
+  height: clamp(300px, 34vw, 420px);
   object-fit: cover;
 }
 
@@ -572,7 +572,7 @@ p {
 }
 
 .section {
-  padding: 3.6rem 0;
+  padding: clamp(2.4rem, 4vw, 3.6rem) 0;
 }
 
 .section:nth-of-type(even) {
@@ -582,12 +582,12 @@ p {
 .section-title {
   display: grid;
   gap: 0.65rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1rem, 1.8vw, 1.5rem);
 }
 
 .grid-3 {
   display: grid;
-  gap: 1rem;
+  gap: clamp(0.7rem, 1.2vw, 1rem);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
@@ -595,7 +595,7 @@ p {
   border: 1px solid var(--panel-border-light);
   border-radius: var(--radius-md);
   background: linear-gradient(180deg, var(--panel-grad-start) 0%, var(--panel-grad-mid) 58%, var(--panel-grad-end) 100%);
-  padding: 1.3rem;
+  padding: clamp(1rem, 1.6vw, 1.3rem);
   box-shadow: var(--panel-shadow);
   position: relative;
   color: var(--panel-text);
@@ -604,8 +604,8 @@ p {
 .card::before {
   content: "";
   position: absolute;
-  left: 1.1rem;
-  right: 1.1rem;
+  left: clamp(0.85rem, 1.3vw, 1.1rem);
+  right: clamp(0.85rem, 1.3vw, 1.1rem);
   top: 0;
   height: 2px;
   border-radius: 2px;
@@ -619,7 +619,7 @@ p {
 
 .grid-2 {
   display: grid;
-  gap: 1rem;
+  gap: clamp(0.7rem, 1.2vw, 1rem);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
@@ -646,13 +646,13 @@ p {
   margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: clamp(0.32rem, 0.55vw, 0.45rem);
 }
 
 .badge {
   border-radius: 999px;
-  font-size: 0.75rem;
-  padding: 0.3rem 0.58rem;
+  font-size: clamp(0.68rem, 0.75vw, 0.75rem);
+  padding: clamp(0.24rem, 0.32vw, 0.3rem) clamp(0.46rem, 0.56vw, 0.58rem);
   color: var(--text);
   border: 1px solid rgba(192, 205, 220, 0.35);
   background: rgba(var(--brand-rgb), 0.16);
@@ -672,7 +672,7 @@ p {
 .panel {
   border: 1px solid var(--panel-border-light);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: clamp(1.1rem, 1.9vw, 1.5rem);
   background: linear-gradient(165deg, var(--panel-grad-start) 0%, var(--panel-grad-mid) 54%, var(--panel-grad-end) 100%);
   box-shadow: var(--panel-shadow);
   color: var(--panel-text);
@@ -697,14 +697,14 @@ p {
 
 .rx-grid {
   display: grid;
-  gap: 0.95rem;
+  gap: clamp(0.7rem, 1vw, 0.95rem);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .rx-section {
   border: 1px solid var(--panel-border-light);
   border-radius: 12px;
-  padding: 0.95rem;
+  padding: clamp(0.78rem, 1.1vw, 0.95rem);
   margin: 0;
   background: linear-gradient(165deg, rgba(208, 226, 244, 0.2) 0%, rgba(143, 183, 220, 0.16) 100%);
   min-width: 0;
@@ -723,7 +723,7 @@ p {
 
 .option-grid {
   display: grid;
-  gap: 0.5rem;
+  gap: clamp(0.35rem, 0.7vw, 0.5rem);
 }
 
 .option-grid.two-col {
@@ -744,25 +744,25 @@ p {
 .pontic-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 0.75rem;
+  gap: clamp(0.45rem, 0.9vw, 0.75rem);
 }
 
 .pontic-item {
   border: 1px solid var(--panel-border-light);
   border-radius: 10px;
-  padding: 0.65rem;
+  padding: clamp(0.5rem, 0.8vw, 0.65rem);
   background: linear-gradient(165deg, rgba(210, 228, 246, 0.2) 0%, rgba(152, 191, 226, 0.16) 100%);
   display: grid;
-  gap: 0.55rem;
+  gap: clamp(0.38rem, 0.7vw, 0.55rem);
 }
 
 .pontic-icon {
   width: 100%;
-  height: 92px;
+  height: clamp(72px, 8vw, 92px);
   aspect-ratio: 1 / 1;
   object-fit: contain;
   object-position: center;
-  max-height: 92px;
+  max-height: clamp(72px, 8vw, 92px);
 }
 
 .pontic-item select {
@@ -1025,9 +1025,9 @@ select:focus {
 }
 
 .footer-grid {
-  padding: 2.5rem 0 2rem;
+  padding: clamp(1.8rem, 3vw, 2.5rem) 0 clamp(1.5rem, 2.5vw, 2rem);
   display: grid;
-  gap: 1.2rem;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
   grid-template-columns: 1.6fr 1fr 1fr;
 }
 
@@ -1060,7 +1060,7 @@ select:focus {
 }
 
 .page-hero {
-  padding: 3.8rem 0 2.3rem;
+  padding: clamp(2.8rem, 4vw, 3.8rem) 0 clamp(1.7rem, 2.4vw, 2.3rem);
 }
 
 .container.legal-shell {
@@ -1068,7 +1068,7 @@ select:focus {
 }
 
 .legal-page {
-  padding: 1.6rem;
+  padding: clamp(1.1rem, 1.8vw, 1.6rem);
 }
 
 .legal-page h2 {
@@ -1088,15 +1088,15 @@ select:focus {
 }
 
 .highlight-band {
-  margin-top: 1.6rem;
+  margin-top: clamp(1rem, 1.8vw, 1.6rem);
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
+  gap: clamp(0.55rem, 1vw, 0.8rem);
 }
 
 .highlight-band .card {
   text-align: center;
-  padding: 1rem;
+  padding: clamp(0.75rem, 1.2vw, 1rem);
 }
 
 .table-like {
@@ -1208,24 +1208,14 @@ select:focus {
   transform: translateY(0);
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 720px) {
   .hero-grid,
   .grid-3,
   .grid-2,
   .footer-grid,
-  .highlight-band {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding-top: 3.4rem;
-  }
-
-  .hero-card img {
-    height: 300px;
-  }
-
-  .rx-grid {
+  .highlight-band,
+  .rx-grid,
+  .option-grid.two-col {
     grid-template-columns: 1fr;
   }
 
@@ -1233,17 +1223,6 @@ select:focus {
     grid-column: auto;
   }
 
-  .pontic-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.85rem;
-  }
-
-  .option-grid.two-col {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 720px) {
   .nav-wrap {
     min-height: auto;
     flex-wrap: wrap;
