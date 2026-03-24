@@ -1,9 +1,6 @@
 [build]
   publish = "."
 
-[functions]
-  directory = "netlify/functions"
-
 [[redirects]]
   from = "/thank-you"
   to = "/thank-you.html"
@@ -11,58 +8,58 @@
 
 [[redirects]]
   from = "/case-submission"
-  to = "/case-submission.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/case-submission/"
-  to = "/case-submission.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/submit-case"
-  to = "/case-submission.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/submit-case/"
-  to = "/case-submission.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
+
+[[redirects]]
+  from = "/case-submission.html"
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/account"
-  to = "/account.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/account/"
-  to = "/account.html"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/login"
-  to = "/account.html?action=login"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/register"
-  to = "/account.html?action=signup"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
   from = "/logout"
-  to = "/account.html?action=logout"
-  status = 200
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[redirects]]
-  from = "/api/create-upload-url"
-  to = "/.netlify/functions/create-upload-url"
-  status = 200
-
-[[redirects]]
-  from = "/api/submit-case"
-  to = "/.netlify/functions/submit-case"
-  status = 200
+  from = "/account.html"
+  to = "https://betterwayclient.seazona.app/"
+  status = 301
 
 [[headers]]
   for = "/*"
