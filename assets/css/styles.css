@@ -193,7 +193,7 @@ img {
 
 .brand-logo {
   display: block;
-  height: clamp(82px, 9vw, 104px);
+  height: clamp(72px, 8vw, 104px);
   width: auto;
   max-width: min(62vw, 760px);
   object-fit: contain;
@@ -201,7 +201,7 @@ img {
 
 .brand-logo-wide {
   display: block;
-  height: clamp(118px, 13.6vw, 162px);
+  height: clamp(104px, 12vw, 162px);
   max-width: min(66.6vw, 821px);
   width: auto;
   object-fit: contain;
