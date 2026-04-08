@@ -670,6 +670,45 @@ p {
   background: rgba(var(--brand-rgb), 0.16);
 }
 
+.social-panel .lead {
+  max-width: 760px;
+}
+
+.social-links-row {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.social-link-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  border: 1px solid rgba(210, 225, 238, 0.32);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--panel-text);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.social-link-pill:hover,
+.social-link-pill:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(var(--brand-rgb), 0.18);
+  border-color: rgba(210, 225, 238, 0.5);
+  color: #ffffff;
+}
+
+.social-link-pill svg {
+  width: 2rem;
+  height: 2rem;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
 .quote {
   border-left: 3px solid var(--accent);
   padding-left: 0.9rem;
