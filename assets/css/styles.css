@@ -1133,6 +1133,54 @@ select:focus {
   border-bottom: 0;
 }
 
+.turnaround-list {
+  border: 1px solid rgba(210, 225, 238, 0.28);
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.turnaround-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid rgba(210, 225, 238, 0.24);
+}
+
+.turnaround-row:last-child {
+  border-bottom: 0;
+}
+
+.turnaround-label {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--panel-text);
+}
+
+.turnaround-value {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.turnaround-notes {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--panel-text-muted);
+}
+
+.turnaround-notes p {
+  margin: 0;
+}
+
+.turnaround-notes p + p {
+  margin-top: 0.35rem;
+}
+
 .notice {
   border-radius: 12px;
   border: 1px dashed rgba(194, 214, 232, 0.55);
