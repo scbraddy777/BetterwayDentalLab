@@ -1134,19 +1134,19 @@ select:focus {
 }
 
 .turnaround-list {
-  border: 1px solid rgba(210, 225, 238, 0.28);
-  border-radius: 18px;
+  border: 1px solid rgba(210, 225, 238, 0.22);
+  border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.015) 100%);
 }
 
 .turnaround-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1rem;
+  grid-template-columns: auto minmax(1.5rem, 1fr) auto;
+  gap: 0.8rem;
   align-items: center;
-  padding: 1rem 1.1rem;
-  border-bottom: 1px solid rgba(210, 225, 238, 0.24);
+  padding: 1.05rem 1.25rem;
+  border-bottom: 1px solid rgba(210, 225, 238, 0.18);
 }
 
 .turnaround-row:last-child {
@@ -1154,13 +1154,19 @@ select:focus {
 }
 
 .turnaround-label {
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--panel-text);
 }
 
+.turnaround-divider {
+  height: 0;
+  border-bottom: 3px dotted rgba(223, 236, 248, 0.5);
+  transform: translateY(2px);
+}
+
 .turnaround-value {
-  font-size: 1rem;
+  font-size: 1.06rem;
   font-weight: 800;
   color: #ffffff;
   text-align: right;
@@ -1169,16 +1175,35 @@ select:focus {
 
 .turnaround-notes {
   margin-top: 1rem;
+  padding: 1rem 1.15rem 0;
   text-align: center;
   color: var(--panel-text-muted);
 }
 
 .turnaround-notes p {
   margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .turnaround-notes p + p {
-  margin-top: 0.35rem;
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 720px) {
+  .turnaround-row {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    align-items: start;
+  }
+
+  .turnaround-divider {
+    display: none;
+  }
+
+  .turnaround-value {
+    text-align: left;
+  }
 }
 
 .notice {
