@@ -1356,8 +1356,8 @@ select:focus {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 0.3rem;
-    padding-block: 0.45rem;
+    row-gap: 0.45rem;
+    padding-block: 0.55rem;
   }
 
   .nav-links {
@@ -1365,12 +1365,13 @@ select:focus {
     order: 2;
     width: 100%;
     max-width: 100%;
-    grid-template-columns: repeat(4, max-content);
-    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: stretch;
+    justify-items: center;
     align-items: center;
     overflow-x: visible;
-    column-gap: 0.08rem;
-    row-gap: 0.08rem;
+    column-gap: 0.12rem;
+    row-gap: 0.12rem;
     padding-bottom: 0;
     -webkit-overflow-scrolling: touch;
   }
@@ -1378,8 +1379,8 @@ select:focus {
   .nav-links a,
   .nav-dropdown-toggle {
     white-space: nowrap;
-    font-size: 0.88rem;
-    padding: 0.3rem 0.44rem;
+    font-size: 0.96rem;
+    padding: 0.34rem 0.52rem;
   }
 
   .nav-dropdown {
@@ -1404,28 +1405,29 @@ select:focus {
   .site-header .btn {
     order: 0;
     margin-left: 0;
-    font-size: 0.8rem;
-    padding-inline: 0.74rem;
+    font-size: 0.88rem;
+    padding-inline: 0.9rem;
   }
 
   .header-actions {
     order: 3;
     margin-left: 0;
-    width: auto;
+    width: 100%;
     max-width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.55rem;
     justify-content: center;
   }
 
   .header-actions .btn {
     min-width: 0;
+    flex: 1 1 0;
     white-space: nowrap;
   }
 
   .brand-logo-link {
     order: 1;
-    width: auto;
+    width: 100%;
     justify-content: center;
   }
 
@@ -1433,7 +1435,7 @@ select:focus {
   .brand-logo {
     width: auto;
     height: auto;
-    max-width: min(70vw, 290px);
+    max-width: min(84vw, 345px);
   }
 
   .pontic-grid {
