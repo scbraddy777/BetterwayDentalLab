@@ -1350,6 +1350,7 @@ select:focus {
   }
 
   .nav-wrap {
+    display: flex;
     min-height: auto;
     flex-wrap: wrap;
     flex-direction: column;
