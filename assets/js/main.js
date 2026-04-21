@@ -183,7 +183,12 @@
     });
   });
 
-  if (window.location.pathname.endsWith("/thank-you.html") || window.location.pathname === "/thank-you") {
+  if (
+    window.location.pathname.endsWith("/thank-you.html") ||
+    window.location.pathname === "/thank-you" ||
+    window.location.pathname.endsWith("/case-feedback-thank-you.html") ||
+    window.location.pathname === "/case-feedback-thank-you"
+  ) {
     try {
       if (localStorage.getItem("bwdl_form_submitted") === "1") {
         trackEvent("form_submit_success", {
