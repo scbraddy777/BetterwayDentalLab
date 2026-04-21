@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Case Feedback | Better Way Dental Lab</title>
+  <meta name="description" content="Share feedback on a completed case with Better Way Dental Lab.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.betterwaydentallab.com/case-feedback">
+  <meta property="og:title" content="Case Feedback | Better Way Dental Lab">
+  <meta property="og:description" content="Share feedback on a completed case with Better Way Dental Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.betterwaydentallab.com/case-feedback">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body data-page="feedback">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a aria-label="Better Way Dental Lab home" class="brand brand-logo-link" href="/">
+        <img class="brand-logo brand-logo-wide" src="/assets/images/Reduced%20Logo%20transparent.png" alt="Better Way Dental Lab logo">
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a data-nav="home" href="/index.html">Home</a>
+        <a data-nav="services" href="/services.html">Services</a>
+        <a data-nav="about" href="/about.html">About Us</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="support-menu" data-nav="terms">Support</button>
+          <div class="nav-dropdown-menu" id="support-menu" role="menu">
+            <a href="/contact.html" role="menuitem">Contact Us</a>
+            <a href="/terms-of-service.html" role="menuitem">Terms of Service</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-actions">
+      <a class="btn btn-outline btn-portal-header" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Dentist Portal</a>
+      <a class="btn btn-outline btn-rx-header" href="/assets/pdfs/BWDL%20RX.pdf" download="BWDL RX.pdf" data-event="click_download_rx_slip">Download Lab RX</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container section-title" data-reveal>
+        <span class="kicker">CASE FEEDBACK</span>
+        <h1>Share feedback on your completed case.</h1>
+        <p class="lead">Use this form to tell us how the case delivered and flag anything that needs follow-up from our team.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="panel" data-reveal>
+          <h2>What To Include</h2>
+          <ul class="list" style="margin-top: 1rem;">
+            <li>The practice or doctor name tied to the case</li>
+            <li>A case reference, patient initials, or other identifier if available</li>
+            <li>How the fit, esthetics, and delivery went chairside</li>
+            <li>Any issue that needs review or direct follow-up</li>
+          </ul>
+          <div class="notice" style="margin-top: 1rem;">This page is for feedback on completed cases. For new submissions, use the Dentist Portal.</div>
+          <div class="hero-cta">
+            <a class="btn btn-outline" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Open Dentist Portal</a>
+          </div>
+        </article>
+
+        <article class="panel" data-reveal>
+          <h2>Send Case Feedback</h2>
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="form-grid"
+            data-track-form
+            name="case-feedback"
+          >
+            <input type="hidden" name="access_key" value="3c8226d7-aab1-44be-a758-4da1bcc221b5">
+            <input type="hidden" name="subject" value="Better Way Dental Lab Case Feedback">
+            <input type="hidden" name="redirect" value="https://www.betterwaydentallab.com/case-feedback-thank-you">
+
+            <div class="field">
+              <label for="feedback-practice">Practice Name *</label>
+              <input id="feedback-practice" name="practice_name" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="feedback-contact">Doctor / Team Member *</label>
+              <input id="feedback-contact" name="contact_name" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="feedback-email">Email *</label>
+              <input id="feedback-email" name="email" type="email" required>
+            </div>
+
+            <div class="field">
+              <label for="feedback-phone">Phone</label>
+              <input id="feedback-phone" name="phone" type="tel">
+            </div>
+
+            <div class="field">
+              <label for="feedback-case-ref">Case Reference / Patient Initials</label>
+              <input id="feedback-case-ref" name="case_reference" type="text">
+            </div>
+
+            <div class="field">
+              <label for="feedback-rating">Overall Feedback *</label>
+              <select id="feedback-rating" name="overall_feedback" required>
+                <option value="">Select one</option>
+                <option>Excellent</option>
+                <option>Good</option>
+                <option>Needs Attention</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="feedback-topic">Primary Area *</label>
+              <select id="feedback-topic" name="feedback_area" required>
+                <option value="">Select one</option>
+                <option>Fit</option>
+                <option>Contacts / Occlusion</option>
+                <option>Esthetics</option>
+                <option>Turnaround / Delivery</option>
+                <option>Communication</option>
+                <option>General Feedback</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="feedback-followup">Would you like follow-up?</label>
+              <select id="feedback-followup" name="follow_up_requested">
+                <option>No follow-up needed</option>
+                <option>Yes, please contact us</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="feedback-message">Feedback Details *</label>
+              <textarea id="feedback-message" name="message" required></textarea>
+            </div>
+
+            <div class="field">
+              <label for="feedback-consent">
+                <input id="feedback-consent" name="consent" type="checkbox" value="agreed" required>
+                I consent to be contacted about this case feedback if follow-up is needed. *
+              </label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Send Feedback</button>
+            <p class="status-message" data-form-status aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3 style="color: #fff;">Better Way Dental Lab</h3>
+        <p style="margin-top: 0.65rem;">Clear communication and predictable restorative partnership for dental practices.</p>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Explore</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/workflow.html">Workflow</a></li>
+          <li><a href="/about.html">About Us</a></li>
+        </ul>
+      </section>
+      <section>
+        <h4 style="color: #fff;">Contact</h4>
+        <ul class="utility-links" style="margin-top: 0.65rem;">
+          <li><a href="tel:4045006368" data-event="click_call">(404)-500-6368</a></li>
+          <li><a href="mailto:BetterWayDentalLab@gmail.com" data-event="click_email">BetterWayDentalLab@gmail.com</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="container footer-meta">
+      <span>&copy; <span id="year"></span> Better Way Dental Lab.</span>
+      <span><a href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Dentist Portal</a></span>
+    </div>
+  </footer>
+
+  <script>window.BWDL_GA4_ID = "G-XXXXXXXXXX";</script>
+  <script defer src="/assets/js/main.js"></script>
+</body>
+</html>
