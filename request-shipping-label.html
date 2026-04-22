@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Request Shipping Label | Better Way Dental Lab</title>
+  <meta name="description" content="Request a prepaid Better Way Dental Lab shipping label for domestic U.S. case shipments.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.betterwaydentallab.com/request-shipping-label">
+  <meta property="og:title" content="Request Shipping Label | Better Way Dental Lab">
+  <meta property="og:description" content="Generate a prepaid inbound label for shipping a case to Better Way Dental Lab.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.betterwaydentallab.com/request-shipping-label">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+</head>
+<body data-page="shipping-label-request">
+  <main>
+    <section class="page-hero">
+      <div class="container section-title" data-reveal>
+        <span class="kicker">PREPAID SHIPPING LABEL</span>
+        <h1>Request a label for sending your case to the lab.</h1>
+        <p class="lead">Use this hidden page to generate a prepaid inbound shipping label addressed to Better Way Dental Lab. Domestic U.S. shipments only.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container grid-2">
+        <article class="panel" data-reveal>
+          <h2>Before You Submit</h2>
+          <ul class="list" style="margin-top: 1rem;">
+            <li>Enter the exact address where the carrier will pick up or where the package will be dropped off.</li>
+            <li>Submit one request per package or mailer so each label matches the correct shipment.</li>
+            <li>Choose the packaging type that best matches what you are sending.</li>
+            <li>Estimate the package weight in ounces as accurately as possible.</li>
+          </ul>
+          <div class="notice" style="margin-top: 1rem;">This page is for requesting a prepaid label only. Case intake still happens through the Dentist Portal.</div>
+          <div class="hero-cta">
+            <a class="btn btn-outline" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Open Dentist Portal</a>
+          </div>
+        </article>
+
+        <article class="panel" data-reveal>
+          <h2>Request Shipping Label</h2>
+          <form id="shipping-label-form" class="form-grid" novalidate>
+            <div class="field">
+              <label for="label-practice">Practice Name *</label>
+              <input id="label-practice" name="practiceName" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="label-contact">Contact Name *</label>
+              <input id="label-contact" name="contactName" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="label-email">Email *</label>
+              <input id="label-email" name="email" type="email" required>
+            </div>
+
+            <div class="field">
+              <label for="label-phone">Phone *</label>
+              <input id="label-phone" name="phone" type="tel" required>
+            </div>
+
+            <div class="field">
+              <label for="label-street1">Street Address *</label>
+              <input id="label-street1" name="street1" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="label-street2">Address Line 2</label>
+              <input id="label-street2" name="street2" type="text">
+            </div>
+
+            <div class="field">
+              <label for="label-city">City *</label>
+              <input id="label-city" name="city" type="text" required>
+            </div>
+
+            <div class="field">
+              <label for="label-state">State *</label>
+              <input id="label-state" name="state" type="text" maxlength="2" required>
+            </div>
+
+            <div class="field">
+              <label for="label-zip">ZIP Code *</label>
+              <input id="label-zip" name="zip" type="text" inputmode="numeric" required>
+            </div>
+
+            <div class="field">
+              <label for="label-package">Package Type *</label>
+              <select id="label-package" name="packageType" required>
+                <option value="">Select package type</option>
+                <option value="padded_mailer">Padded Mailer</option>
+                <option value="small_box">Small Box</option>
+                <option value="impression_box">Impression / Model Box</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="label-weight">Estimated Weight (oz) *</label>
+              <input id="label-weight" name="weightOz" type="number" min="1" max="160" step="0.1" required>
+            </div>
+
+            <div class="field">
+              <label for="label-contents">Contents *</label>
+              <select id="label-contents" name="contents" required>
+                <option value="">Select contents</option>
+                <option>Crown / Bridge Case</option>
+                <option>Implant Case</option>
+                <option>Veneer Case</option>
+                <option>Impression / Model</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="label-notes">Notes</label>
+              <textarea id="label-notes" name="notes"></textarea>
+            </div>
+
+            <p class="form-note">Labels are generated for domestic U.S. shipments only. Carrier and service may vary based on the configured account and the shipment details you provide.</p>
+
+            <div class="hidden-field" aria-hidden="true">
+              <label for="label-company-website">Company Website</label>
+              <input id="label-company-website" name="companyWebsite" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="label-consent">
+                <input id="label-consent" name="consent" type="checkbox" value="agreed" required>
+                I confirm this is a U.S. shipment request and the package will be ready to send when the label is generated. *
+              </label>
+            </div>
+
+            <button class="btn btn-primary" type="submit" data-submit-label>Generate Shipping Label</button>
+            <p class="status-message" data-form-status aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-label-result hidden>
+      <div class="container panel label-result-card" data-reveal>
+        <div class="label-request-intro">
+          <span class="kicker">LABEL READY</span>
+          <h2>Your shipping label is ready to download.</h2>
+          <p class="lead">Download the PDF label, attach it to your package, and keep the tracking number for reference.</p>
+        </div>
+        <div class="label-result-summary">
+          <div class="panel">
+            <strong>Tracking Number</strong>
+            <span data-label-tracking></span>
+          </div>
+          <div class="panel">
+            <strong>Service</strong>
+            <span data-label-service></span>
+          </div>
+          <div class="panel">
+            <strong>Package Type</strong>
+            <span data-label-package></span>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#" data-label-link target="_blank" rel="noopener noreferrer">Download Shipping Label</a>
+          <a class="btn btn-outline" href="/request-shipping-label">Generate Another Label</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-meta">
+      <span>&copy; <span id="year"></span> Better Way Dental Lab.</span>
+      <span><a href="mailto:BetterWayDentalLab@gmail.com" data-event="click_email">BetterWayDentalLab@gmail.com</a></span>
+    </div>
+  </footer>
+
+  <script>window.BWDL_GA4_ID = "G-XXXXXXXXXX";</script>
+  <script defer src="/assets/js/main.js"></script>
+  <script defer src="/assets/js/shipping-label-request.js"></script>
+</body>
+</html>
