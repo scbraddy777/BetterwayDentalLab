@@ -27,6 +27,16 @@
   status = 200
 
 [[redirects]]
+  from = "/request-shipping-label"
+  to = "/request-shipping-label.html"
+  status = 200
+
+[[redirects]]
+  from = "/request-shipping-label/"
+  to = "/request-shipping-label.html"
+  status = 200
+
+[[redirects]]
   from = "/case-submission"
   to = "https://betterwayclient.seazona.app/"
   status = 301

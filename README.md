@@ -11,6 +11,9 @@ Static multi-page marketing site for Better Way Dental Lab, deployed on Netlify.
 - `/terms-of-service.html`
 - `/thank-you.html`
 - `/404.html`
+- Hidden utility routes:
+  - `/case-feedback`
+  - `/request-shipping-label`
 
 ## Workflow
 - `Dentist Portal` links to the external Seazona portal:
@@ -21,8 +24,26 @@ Static multi-page marketing site for Better Way Dental Lab, deployed on Netlify.
 
 ## Netlify Notes
 - Netlify config file: `/netlify.toml`
+- Shipping labels use a Netlify Function at `/.netlify/functions/create-shipping-label`
 - Old `/case-submission`, `/submit-case`, `/account`, `/login`, `/register`, and `/logout` paths redirect to the Dentist Portal.
 - To email general inquiry submissions to `BetterWayDentalLab@gmail.com`, configure a Netlify Forms email notification for the `contact-inquiry` form in the Netlify dashboard.
+
+### Shipping Label Environment Variables
+Set these in Netlify before using `/request-shipping-label`:
+
+- `SHIPPO_API_TOKEN`
+- `BWDL_LABEL_TO_NAME`
+- `BWDL_LABEL_TO_COMPANY`
+- `BWDL_LABEL_TO_STREET1`
+- `BWDL_LABEL_TO_STREET2` (optional)
+- `BWDL_LABEL_TO_CITY`
+- `BWDL_LABEL_TO_STATE`
+- `BWDL_LABEL_TO_ZIP`
+- `BWDL_LABEL_TO_PHONE` (optional)
+- `BWDL_LABEL_TO_EMAIL` (optional)
+- `BWDL_SHIPPO_PROVIDER` (optional, example: `USPS`)
+- `BWDL_SHIPPO_SERVICELEVEL_TOKEN` (optional, example: `usps_ground_advantage`)
+- `BWDL_SHIPPO_CARRIER_ACCOUNTS` (optional, comma-separated Shippo carrier account object IDs)
 
 ## Local Preview
 1. Open the project folder.

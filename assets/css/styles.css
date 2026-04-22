@@ -948,6 +948,48 @@ select:focus {
   color: var(--danger-text);
 }
 
+.status-message.success {
+  display: block;
+  background: rgba(92, 153, 121, 0.14);
+  border: 1px solid rgba(146, 209, 171, 0.35);
+  color: #ecfff3;
+}
+
+.label-request-intro {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.label-request-intro .lead:last-child {
+  margin-bottom: 0;
+}
+
+.label-result-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.label-result-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.label-result-summary .panel {
+  padding: 0.95rem 1rem;
+}
+
+.label-result-summary strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+.label-result-summary span {
+  color: var(--panel-text-muted);
+  word-break: break-word;
+}
+
 .upload-list {
   list-style: none;
   margin: 0.7rem 0 0;
@@ -1341,7 +1383,8 @@ select:focus {
   .footer-grid,
   .highlight-band,
   .rx-grid,
-  .option-grid.two-col {
+  .option-grid.two-col,
+  .label-result-summary {
     grid-template-columns: 1fr;
   }
 
