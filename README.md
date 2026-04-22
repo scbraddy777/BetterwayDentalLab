@@ -31,7 +31,7 @@ Static multi-page marketing site for Better Way Dental Lab, deployed on Netlify.
 ### Shipping Label Environment Variables
 Set these in Netlify before using `/request-shipping-label`:
 
-- `EASYPOST_API_KEY`
+- `SHIPPO_API_TOKEN`
 - `BWDL_LABEL_TO_NAME`
 - `BWDL_LABEL_TO_COMPANY`
 - `BWDL_LABEL_TO_STREET1`
@@ -41,8 +41,9 @@ Set these in Netlify before using `/request-shipping-label`:
 - `BWDL_LABEL_TO_ZIP`
 - `BWDL_LABEL_TO_PHONE` (optional)
 - `BWDL_LABEL_TO_EMAIL` (optional)
-- `BWDL_LABEL_CARRIER` (optional, example: `USPS`)
-- `BWDL_LABEL_SERVICE` (optional, example: `GroundAdvantage`)
+- `BWDL_SHIPPO_PROVIDER` (optional, example: `USPS`)
+- `BWDL_SHIPPO_SERVICELEVEL_TOKEN` (optional, example: `usps_ground_advantage`)
+- `BWDL_SHIPPO_CARRIER_ACCOUNTS` (optional, comma-separated Shippo carrier account object IDs)
 
 ## Local Preview
 1. Open the project folder.

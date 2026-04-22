@@ -1,4 +1,4 @@
-const API_BASE = "https://api.easypost.com/v2";
+const API_BASE = "https://api.goshippo.com";
 
 const PACKAGE_PRESETS = {
   padded_mailer: {
@@ -46,27 +46,45 @@ function parseBody(event) {
   }
 }
 
-function formatEasyPostError(payload) {
+function parseCsvEnv(value) {
+  return normalize(value)
+    .split(",")
+    .map(function (item) {
+      return item.trim();
+    })
+    .filter(Boolean);
+}
+
+function formatShippoError(payload) {
   if (!payload || typeof payload !== "object") {
-    return "The shipping service returned an unknown error.";
+    return "The shipping service reported an unknown error.";
   }
-  if (payload.error && payload.error.message) {
-    return payload.error.message;
+
+  if (payload.detail) {
+    return payload.detail;
   }
-  if (Array.isArray(payload.errors) && payload.errors.length > 0) {
-    return payload.errors[0].message || payload.errors[0].field || "The shipping service reported an error.";
-  }
+
   if (Array.isArray(payload.messages) && payload.messages.length > 0) {
-    return payload.messages[0].text || "The shipping service reported an error.";
+    return payload.messages
+      .map(function (message) {
+        return message && (message.text || message.source || message.code);
+      })
+      .filter(Boolean)
+      .join(" ") || "The shipping service reported an error.";
   }
+
+  if (payload.__all__) {
+    return String(payload.__all__);
+  }
+
   return "The shipping service reported an error.";
 }
 
-async function easypostRequest(path, options = {}) {
+async function shippoRequest(path, options) {
   const response = await fetch(API_BASE + path, {
     method: options.method || "GET",
     headers: {
-      Authorization: "Basic " + Buffer.from(process.env.EASYPOST_API_KEY + ":").toString("base64"),
+      Authorization: "ShippoToken " + process.env.SHIPPO_API_TOKEN,
       "Content-Type": "application/json",
     },
     body: options.body ? JSON.stringify(options.body) : undefined,
@@ -77,26 +95,25 @@ async function easypostRequest(path, options = {}) {
   });
 
   if (!response.ok) {
-    throw new Error(formatEasyPostError(payload));
+    throw new Error(formatShippoError(payload));
   }
 
   return payload;
 }
 
 function selectRate(rates) {
-  const preferredCarrier = normalize(process.env.BWDL_LABEL_CARRIER).toLowerCase();
-  const preferredService = normalize(process.env.BWDL_LABEL_SERVICE).toLowerCase();
+  const preferredProvider = normalize(process.env.BWDL_SHIPPO_PROVIDER).toLowerCase();
+  const preferredServiceToken = normalize(process.env.BWDL_SHIPPO_SERVICELEVEL_TOKEN).toLowerCase();
 
   const filteredRates = (rates || []).filter(function (rate) {
-    const carrier = normalize(rate.carrier).toLowerCase();
-    const service = normalize(rate.service).toLowerCase();
-    const carrierMatches = !preferredCarrier || carrier === preferredCarrier;
-    const serviceMatches = !preferredService || service === preferredService;
-    return carrierMatches && serviceMatches;
+    const provider = normalize(rate.provider).toLowerCase();
+    const serviceToken = normalize(rate.servicelevel && rate.servicelevel.token).toLowerCase();
+    const providerMatches = !preferredProvider || provider === preferredProvider;
+    const serviceMatches = !preferredServiceToken || serviceToken === preferredServiceToken;
+    return providerMatches && serviceMatches;
   });
 
   const candidates = filteredRates.length ? filteredRates : rates || [];
-
   if (!candidates.length) {
     return null;
   }
@@ -105,12 +122,16 @@ function selectRate(rates) {
     if (!lowest) {
       return rate;
     }
-    return Number(rate.rate) < Number(lowest.rate) ? rate : lowest;
+
+    const lowestAmount = Number(lowest.amount || Number.POSITIVE_INFINITY);
+    const currentAmount = Number(rate.amount || Number.POSITIVE_INFINITY);
+    return currentAmount < lowestAmount ? rate : lowest;
   }, null);
 }
 
 function destinationAddressFromEnv() {
   const requiredKeys = [
+    "SHIPPO_API_TOKEN",
     "BWDL_LABEL_TO_NAME",
     "BWDL_LABEL_TO_STREET1",
     "BWDL_LABEL_TO_CITY",
@@ -121,10 +142,6 @@ function destinationAddressFromEnv() {
   const missing = requiredKeys.filter(function (key) {
     return !normalize(process.env[key]);
   });
-
-  if (!normalize(process.env.EASYPOST_API_KEY)) {
-    missing.unshift("EASYPOST_API_KEY");
-  }
 
   if (missing.length) {
     return { missing };
@@ -141,6 +158,7 @@ function destinationAddressFromEnv() {
     country: "US",
     phone: normalize(process.env.BWDL_LABEL_TO_PHONE),
     email: normalize(process.env.BWDL_LABEL_TO_EMAIL),
+    is_residential: false,
   };
 }
 
@@ -161,7 +179,7 @@ exports.handler = async function (event) {
   const destination = destinationAddressFromEnv();
   if (destination.missing) {
     return json(500, {
-      error: "Shipping labels are not fully configured yet. Add the EasyPost and lab address environment variables in Netlify before going live.",
+      error: "Shipping labels are not fully configured yet. Add the Shippo token and lab address environment variables in Netlify before going live.",
       missing: destination.missing,
     });
   }
@@ -202,69 +220,74 @@ exports.handler = async function (event) {
   }
 
   try {
-    const shipment = await easypostRequest("/shipments", {
-      method: "POST",
-      body: {
-        shipment: {
-          to_address: destination,
-          from_address: {
-            name: normalize(body.contactName),
-            company: normalize(body.practiceName),
-            street1: normalize(body.street1),
-            street2: normalize(body.street2),
-            city: normalize(body.city),
-            state: normalize(body.state),
-            zip: normalize(body.zip),
-            country: "US",
-            phone: normalize(body.phone),
-            email: normalize(body.email),
-          },
-          parcel: {
-            length: packagePreset.length,
-            width: packagePreset.width,
-            height: packagePreset.height,
-            weight: weightOz,
-          },
-          options: {
-            label_format: "PDF",
-          },
-          reference: [normalize(body.practiceName), normalize(body.contents)].filter(Boolean).join(" - "),
-        },
+    const shipmentBody = {
+      address_from: {
+        name: normalize(body.contactName),
+        company: normalize(body.practiceName),
+        street1: normalize(body.street1),
+        street2: normalize(body.street2),
+        city: normalize(body.city),
+        state: normalize(body.state).toUpperCase(),
+        zip: normalize(body.zip),
+        country: "US",
+        phone: normalize(body.phone),
+        email: normalize(body.email),
+        is_residential: false,
       },
+      address_to: destination,
+      parcels: [
+        {
+          length: String(packagePreset.length),
+          width: String(packagePreset.width),
+          height: String(packagePreset.height),
+          distance_unit: "in",
+          weight: String(weightOz),
+          mass_unit: "oz",
+        },
+      ],
+      async: false,
+      metadata: [normalize(body.practiceName), normalize(body.contents), normalize(body.notes)].filter(Boolean).join(" | ").slice(0, 500),
+      label_file_type: "PDF",
+    };
+
+    const carrierAccounts = parseCsvEnv(process.env.BWDL_SHIPPO_CARRIER_ACCOUNTS);
+    if (carrierAccounts.length) {
+      shipmentBody.carrier_accounts = carrierAccounts;
+    }
+
+    const shipment = await shippoRequest("/shipments/", {
+      method: "POST",
+      body: shipmentBody,
     });
 
     const selectedRate = selectRate(shipment.rates || []);
-    if (!selectedRate) {
+    if (!selectedRate || !selectedRate.object_id) {
       return json(400, {
         error: "No label rate was returned for this shipment. Please double-check the address and package details.",
       });
     }
 
-    const purchasedShipment = await easypostRequest("/shipments/" + shipment.id + "/buy", {
+    const transaction = await shippoRequest("/transactions/", {
       method: "POST",
       body: {
-        rate: {
-          id: selectedRate.id,
-        },
+        rate: selectedRate.object_id,
+        async: false,
+        label_file_type: "PDF",
+        metadata: [normalize(body.practiceName), normalize(body.contents)].filter(Boolean).join(" - ").slice(0, 100),
       },
     });
 
-    const postageLabel = purchasedShipment.postage_label || {};
-    const labelUrl = postageLabel.label_pdf_url || postageLabel.label_url || postageLabel.label_zpl_url || "";
-
-    if (!labelUrl) {
-      return json(500, {
-        error: "The label was purchased, but no printable file was returned. Please contact the lab.",
-      });
+    if (!transaction.label_url) {
+      throw new Error(formatShippoError(transaction));
     }
 
     return json(200, {
       success: true,
-      labelUrl,
-      trackingCode: purchasedShipment.tracking_code || "",
-      carrier: selectedRate.carrier || "",
-      service: selectedRate.service || "",
-      rate: selectedRate.rate || "",
+      labelUrl: transaction.label_url,
+      trackingCode: transaction.tracking_number || "",
+      carrier: selectedRate.provider || "",
+      service: (selectedRate.servicelevel && selectedRate.servicelevel.name) || "",
+      rate: selectedRate.amount || "",
       packageLabel: packagePreset.label,
     });
   } catch (error) {
