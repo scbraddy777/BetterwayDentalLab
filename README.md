@@ -45,6 +45,13 @@ Set these in Netlify before using `/request-shipping-label`:
 - `BWDL_SHIPPO_SERVICELEVEL_TOKEN` (optional, example: `usps_ground_advantage`)
 - `BWDL_SHIPPO_CARRIER_ACCOUNTS` (optional, comma-separated Shippo carrier account object IDs)
 
+### Shipping Label Notification Variables
+Set these in Netlify if you want an email every time a label is created:
+
+- `RESEND_API_KEY`
+- `BWDL_LABEL_NOTIFICATION_EMAIL`
+- `BWDL_LABEL_NOTIFICATION_FROM` (optional, defaults to `Better Way Dental Lab <onboarding@resend.dev>`)
+
 ## Local Preview
 1. Open the project folder.
 2. Run a simple local server, for example:
