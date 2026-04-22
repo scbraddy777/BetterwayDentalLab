@@ -21,6 +21,8 @@ const PACKAGE_PRESETS = {
   },
 };
 
+const RESEND_API_BASE = "https://api.resend.com";
+
 function json(statusCode, payload) {
   return {
     statusCode,
@@ -96,6 +98,59 @@ async function shippoRequest(path, options) {
 
   if (!response.ok) {
     throw new Error(formatShippoError(payload));
+  }
+
+  return payload;
+}
+
+async function sendNotificationEmail(details) {
+  if (!normalize(process.env.RESEND_API_KEY) || !normalize(process.env.BWDL_LABEL_NOTIFICATION_EMAIL)) {
+    return { skipped: true };
+  }
+
+  const fromAddress = normalize(process.env.BWDL_LABEL_NOTIFICATION_FROM) || "Better Way Dental Lab <onboarding@resend.dev>";
+  const replyTo = normalize(process.env.BWDL_LABEL_TO_EMAIL) || normalize(process.env.BWDL_LABEL_NOTIFICATION_EMAIL);
+  const subject = "New shipping label request: " + (details.practiceName || "Unknown practice");
+  const html = [
+    "<h2>New Better Way shipping label request</h2>",
+    "<p>A customer successfully generated a prepaid inbound label.</p>",
+    "<ul>",
+    "<li><strong>Practice:</strong> " + details.practiceName + "</li>",
+    "<li><strong>Contact:</strong> " + details.contactName + "</li>",
+    "<li><strong>Email:</strong> " + details.email + "</li>",
+    "<li><strong>Phone:</strong> " + details.phone + "</li>",
+    "<li><strong>Ship-from address:</strong> " + details.addressHtml + "</li>",
+    "<li><strong>Contents:</strong> " + details.contents + "</li>",
+    "<li><strong>Package type:</strong> " + details.packageLabel + "</li>",
+    "<li><strong>Weight:</strong> " + details.weightOz + " oz</li>",
+    "<li><strong>Carrier/service:</strong> " + details.carrierService + "</li>",
+    "<li><strong>Tracking number:</strong> " + details.trackingCode + "</li>",
+    "<li><strong>Label URL:</strong> <a href=\"" + details.labelUrl + "\">Download label</a></li>",
+    "</ul>",
+    details.notes ? "<p><strong>Notes:</strong> " + details.notes + "</p>" : "",
+  ].join("");
+
+  const response = await fetch(RESEND_API_BASE + "/emails", {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + process.env.RESEND_API_KEY,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      from: fromAddress,
+      to: [normalize(process.env.BWDL_LABEL_NOTIFICATION_EMAIL)],
+      subject: subject,
+      html: html,
+      reply_to: replyTo,
+    }),
+  });
+
+  const payload = await response.json().catch(function () {
+    return {};
+  });
+
+  if (!response.ok) {
+    throw new Error(payload && payload.message ? payload.message : "Notification email failed to send.");
   }
 
   return payload;
@@ -220,6 +275,14 @@ exports.handler = async function (event) {
   }
 
   try {
+    const addressHtml = [
+      normalize(body.street1),
+      normalize(body.street2),
+      [normalize(body.city), normalize(body.state).toUpperCase(), normalize(body.zip)].filter(Boolean).join(", ").replace(", ", " "),
+    ]
+      .filter(Boolean)
+      .join("<br>");
+
     const shipmentBody = {
       address_from: {
         name: normalize(body.contactName),
@@ -279,6 +342,27 @@ exports.handler = async function (event) {
 
     if (!transaction.label_url) {
       throw new Error(formatShippoError(transaction));
+    }
+
+    const carrierService = [selectedRate.provider, selectedRate.servicelevel && selectedRate.servicelevel.name].filter(Boolean).join(" ");
+
+    try {
+      await sendNotificationEmail({
+        practiceName: normalize(body.practiceName),
+        contactName: normalize(body.contactName),
+        email: normalize(body.email),
+        phone: normalize(body.phone),
+        addressHtml: addressHtml,
+        contents: normalize(body.contents),
+        packageLabel: packagePreset.label,
+        weightOz: String(weightOz),
+        carrierService: carrierService || "Rate selected automatically",
+        trackingCode: transaction.tracking_number || "Not yet assigned",
+        labelUrl: transaction.label_url,
+        notes: normalize(body.notes),
+      });
+    } catch (notificationError) {
+      console.error("Label notification failed:", notificationError);
     }
 
     return json(200, {
