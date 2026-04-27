@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Request Shipping Label | Better Way Dental Lab</title>
-  <meta name="description" content="Request a prepaid Better Way Dental Lab shipping label for domestic U.S. case shipments.">
+  <meta name="description" content="Request approval for a prepaid Better Way Dental Lab shipping label for domestic U.S. case shipments.">
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://www.betterwaydentallab.com/request-shipping-label">
   <meta property="og:title" content="Request Shipping Label | Better Way Dental Lab">
-  <meta property="og:description" content="Generate a prepaid inbound label for shipping a case to Better Way Dental Lab.">
+  <meta property="og:description" content="Request approval for a prepaid inbound label for shipping a case to Better Way Dental Lab.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.betterwaydentallab.com/request-shipping-label">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,7 +49,7 @@
       <div class="container section-title" data-reveal>
         <span class="kicker">PREPAID SHIPPING LABEL</span>
         <h1>Request a label for sending your case to the lab.</h1>
-        <p class="lead">Use this page to generate a prepaid inbound shipping label addressed to Better Way Dental Lab. Domestic U.S. shipments only.</p>
+        <p class="lead">Use this page to request a prepaid inbound shipping label addressed to Better Way Dental Lab. Domestic U.S. shipments only.</p>
       </div>
     </section>
 
@@ -63,14 +63,14 @@
             <li>Choose the packaging type that best matches what you are sending.</li>
             <li>Estimate the package weight in ounces as accurately as possible.</li>
           </ul>
-          <div class="notice" style="margin-top: 1rem;">This page is for requesting a prepaid label only. Case intake still happens through the Dentist Portal.</div>
+          <div class="notice" style="margin-top: 1rem;">This page is for requesting a prepaid label. Better Way Dental Lab will review the request before a label is generated. Case intake still happens through the Dentist Portal.</div>
           <div class="hero-cta">
             <a class="btn btn-outline" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Open Dentist Portal</a>
           </div>
         </article>
 
         <article class="panel" data-reveal>
-          <h2>Request Shipping Label</h2>
+          <h2>Request Shipping Label Approval</h2>
           <form id="shipping-label-form" class="form-grid" novalidate>
             <div class="field">
               <label for="label-practice">Practice Name *</label>
@@ -149,7 +149,7 @@
               <textarea id="label-notes" name="notes"></textarea>
             </div>
 
-            <p class="form-note">Labels are generated for domestic U.S. shipments only. Carrier and service may vary based on the configured Shippo account and the shipment details you provide.</p>
+            <p class="form-note">Approved labels are generated for domestic U.S. shipments only. Carrier and service may vary based on the configured Shippo account and the shipment details you provide.</p>
 
             <div class="hidden-field" aria-hidden="true">
               <label for="label-company-website">Company Website</label>
@@ -159,11 +159,11 @@
             <div class="field">
               <label for="label-consent">
                 <input id="label-consent" name="consent" type="checkbox" value="agreed" required>
-                I confirm this is a U.S. shipment request and the package will be ready to send when the label is generated. *
+                I confirm this is a U.S. shipment request and understand Better Way Dental Lab will review it before creating the label. *
               </label>
             </div>
 
-            <button class="btn btn-primary" type="submit" data-submit-label>Generate Shipping Label</button>
+            <button class="btn btn-primary" type="submit" data-submit-label>Submit Label Request</button>
             <p class="status-message" data-form-status aria-live="polite"></p>
           </form>
         </article>
@@ -173,27 +173,27 @@
     <section class="section" data-label-result hidden>
       <div class="container panel label-result-card" data-reveal>
         <div class="label-request-intro">
-          <span class="kicker">LABEL READY</span>
-          <h2>Your shipping label is ready to download.</h2>
-          <p class="lead">Download the PDF label, attach it to your package, and keep the tracking number for reference.</p>
+          <span class="kicker">REQUEST SUBMITTED</span>
+          <h2>Your shipping label request has been sent for review.</h2>
+          <p class="lead">If approved, Better Way Dental Lab will generate the label and send it to the email you provided.</p>
         </div>
         <div class="label-result-summary">
           <div class="panel">
-            <strong>Tracking Number</strong>
+            <strong>Status</strong>
             <span data-label-tracking></span>
           </div>
           <div class="panel">
-            <strong>Service</strong>
+            <strong>Approval</strong>
             <span data-label-service></span>
           </div>
           <div class="panel">
-            <strong>Package Type</strong>
+            <strong>Requested Package</strong>
             <span data-label-package></span>
           </div>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#" data-label-link target="_blank" rel="noopener noreferrer">Download Shipping Label</a>
-          <a class="btn btn-outline" href="/request-shipping-label">Generate Another Label</a>
+          <a class="btn btn-primary" href="#" data-label-link target="_blank" rel="noopener noreferrer">Label Sent After Approval</a>
+          <a class="btn btn-outline" href="/request-shipping-label">Submit Another Request</a>
         </div>
       </div>
     </section>

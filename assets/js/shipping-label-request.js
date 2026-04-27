@@ -37,13 +37,10 @@
 
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = "Generating...";
+      submitButton.textContent = "Submitting...";
     }
 
-    if (resultSection) {
-      resultSection.hidden = true;
-    }
-
+    
     try {
       var payload = Object.fromEntries(new FormData(form).entries());
       var response = await fetch("/.netlify/functions/create-shipping-label", {
@@ -62,20 +59,7 @@
       }
 
       if (!response.ok) {
-        throw new Error(data.error || "We couldn't generate a label right now. Please call the lab and we'll help directly.");
-      }
-
-      if (labelLink) {
-        labelLink.href = data.labelUrl || "#";
-      }
-      if (trackingNode) {
-        trackingNode.textContent = data.trackingCode || "Tracking will appear after carrier acceptance.";
-      }
-      if (serviceNode) {
-        serviceNode.textContent = [data.carrier, data.service].filter(Boolean).join(" ") || "Carrier service selected automatically";
-      }
-      if (packageNode) {
-        packageNode.textContent = data.packageLabel || "Custom parcel";
+        throw new Error(data.error || "We couldn't submit your request right now. Please call the lab and we'll help directly.");
       }
 
       if (resultSection) {
@@ -83,9 +67,24 @@
         resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      setStatus("Shipping label generated successfully.", "success");
+      if (trackingNode) {
+        trackingNode.textContent = "Pending approval";
+      }
+      if (serviceNode) {
+        serviceNode.textContent = "Assigned after approval";
+      }
+      if (packageNode) {
+        packageNode.textContent = payload.packageType ? payload.packageType.replace(/_/g, " ") : "Pending";
+      }
+      if (labelLink) {
+        labelLink.removeAttribute("href");
+        labelLink.setAttribute("aria-disabled", "true");
+        labelLink.textContent = "Label Sent After Approval";
+      }
+
+      setStatus(data.message || "Your shipping label request has been submitted for review.", "success");
     } catch (error) {
-      setStatus(error && error.message ? error.message : "We couldn't generate a label right now. Please call the lab.", "error");
+      setStatus(error && error.message ? error.message : "We couldn't submit your request right now. Please call the lab.", "error");
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
