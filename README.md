@@ -14,6 +14,7 @@ Static multi-page marketing site for Better Way Dental Lab, deployed on Netlify.
 - Hidden utility routes:
   - `/case-feedback`
   - `/request-shipping-label`
+  - `/connect`
 
 ## Workflow
 - `Dentist Portal` links to the external Seazona portal:
@@ -21,6 +22,7 @@ Static multi-page marketing site for Better Way Dental Lab, deployed on Netlify.
 - `Download Lab RX` downloads:
   - `/assets/pdfs/BWDL RX.pdf`
 - The general inquiry form posts through Netlify Forms and redirects to `/thank-you.html`.
+- The QR-code connect page is a hidden route at `/connect` and downloads the vCard from `/better-way-dental-lab.vcf` for mobile contact saving.
 
 ## Netlify Notes
 - Netlify config file: `/netlify.toml`
@@ -53,6 +55,14 @@ Set these in Netlify if you want approval and label emails:
 - `RESEND_API_KEY`
 - `BWDL_LABEL_NOTIFICATION_EMAIL`
 - `BWDL_LABEL_NOTIFICATION_FROM` (optional, defaults to `Better Way Dental Lab <onboarding@resend.dev>`)
+
+## Connect QR Page Notes
+- QR code destination: `https://www.betterwaydentallab.com/connect`
+- The page is intentionally hidden from nav, footer, and sitemap, and marked `noindex, nofollow`.
+- Update contact details in both `/connect.html` and `/public/better-way-dental-lab.vcf` together so the QR page and imported contact card stay in sync.
+- Replace the connect-page logo by swapping the image in `/assets/images/Reduced Logo transparent.png` or updating the `<img>` in `/connect.html`.
+- Add future action buttons inside the `.connect-action-grid` block in `/connect.html`.
+- The vCard file is stored at `/public/better-way-dental-lab.vcf` and is also exposed at `/better-way-dental-lab.vcf` for a cleaner download URL.
 
 ## Local Preview
 1. Open the project folder.

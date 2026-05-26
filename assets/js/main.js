@@ -59,6 +59,72 @@
     }
   }
 
+  function copyTextToClipboard(value) {
+    if (!value) {
+      return Promise.reject(new Error("No value to copy."));
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(value);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      textarea.style.pointerEvents = "none";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        var copied = document.execCommand("copy");
+        document.body.removeChild(textarea);
+        if (copied) {
+          resolve();
+        } else {
+          reject(new Error("Clipboard copy failed."));
+        }
+      } catch (error) {
+        document.body.removeChild(textarea);
+        reject(error);
+      }
+    });
+  }
+
+  if (page === "connect") {
+    var connectFeedback = document.querySelector(".connect-feedback");
+    var isDesktopLike = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    function setConnectFeedback(message) {
+      if (!connectFeedback) {
+        return;
+      }
+      connectFeedback.hidden = false;
+      connectFeedback.textContent = message;
+    }
+
+    document.querySelectorAll(".connect-action[href^='tel:']").forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        if (!isDesktopLike) {
+          return;
+        }
+
+        event.preventDefault();
+        var phone = link.getAttribute("data-copy-phone") || (link.getAttribute("href") || "").replace(/^tel:/i, "");
+
+        copyTextToClipboard(phone)
+          .then(function () {
+            setConnectFeedback("Phone number copied. Use your mobile device to place the call.");
+          })
+          .catch(function () {
+            setConnectFeedback("Phone number: " + phone);
+          });
+      });
+    });
+  }
+
   document.querySelectorAll("[data-event]").forEach(function (node) {
     node.addEventListener("click", function () {
       var eventName = node.getAttribute("data-event");
