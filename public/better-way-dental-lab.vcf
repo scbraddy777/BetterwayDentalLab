@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Braddy;Cole;;;
+FN:Cole Braddy
+ORG:Better Way Dental Lab
+TITLE:Lab Coordinator
+TEL;TYPE=WORK,VOICE:404-500-6368
+TEL;TYPE=CELL,VOICE:678-857-8524
+EMAIL;TYPE=INTERNET,PREF:BetterWayDentalLab@gmail.com
+URL:https://www.betterwaydentallab.com
+ADR;TYPE=WORK:;;455 Church Street;Fayetteville;GA;30214;USA
+LABEL;TYPE=WORK:455 Church Street\nFayetteville, GA 30214
+END:VCARD

@@ -37,6 +37,21 @@
   status = 200
 
 [[redirects]]
+  from = "/connect"
+  to = "/connect.html"
+  status = 200
+
+[[redirects]]
+  from = "/connect/"
+  to = "/connect.html"
+  status = 200
+
+[[redirects]]
+  from = "/better-way-dental-lab.vcf"
+  to = "/public/better-way-dental-lab.vcf"
+  status = 200
+
+[[redirects]]
   from = "/case-submission"
   to = "https://betterwayclient.seazona.app/"
   status = 301
@@ -97,3 +112,25 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/connect"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/connect.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/public/better-way-dental-lab.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = 'attachment; filename="better-way-dental-lab.vcf"'
+
+[[headers]]
+  for = "/better-way-dental-lab.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = 'attachment; filename="better-way-dental-lab.vcf"'
