@@ -1540,6 +1540,21 @@ body[data-page="connect"] .connect-note strong {
   color: #0b1220;
 }
 
+body[data-page="connect"] .connect-feedback {
+  margin-top: 0.95rem;
+  padding: 0.78rem 0.95rem;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 99, 206, 0.14);
+  background: rgba(11, 99, 206, 0.06);
+  color: #0b3d73;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+body[data-page="connect"] .connect-feedback[hidden] {
+  display: none;
+}
+
 [data-reveal] {
   opacity: 1;
   transform: none;
