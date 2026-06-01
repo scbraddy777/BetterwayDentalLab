@@ -1397,9 +1397,9 @@ body[data-page="connect"] .connect-profile {
 
 body[data-page="connect"] .connect-headshot {
   justify-self: center;
-  width: clamp(6.56rem, 10vw, 7.5rem);
+  width: clamp(7rem, 10.8vw, 8.4rem);
   aspect-ratio: 1;
-  padding: 0.3rem;
+  padding: 0.34rem;
   border-radius: 50%;
   border: 1px solid rgba(127, 164, 194, 0.22);
   background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
@@ -1412,6 +1412,7 @@ body[data-page="connect"] .connect-headshot img {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 body[data-page="connect"] .connect-brandmark {
