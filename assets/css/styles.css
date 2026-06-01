@@ -1451,6 +1451,55 @@ body[data-page="connect"] .connect-summary {
   max-width: 42ch;
 }
 
+body[data-page="connect"] .connect-details {
+  margin: 0.25rem 0 0;
+  padding-top: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+  border-top: 1px solid rgba(127, 164, 194, 0.18);
+}
+
+body[data-page="connect"] .connect-detail {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+
+body[data-page="connect"] .connect-detail dt {
+  flex: 0 0 4.9rem;
+  color: #0b3d73;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+body[data-page="connect"] .connect-detail dd {
+  margin: 0;
+  flex: 1;
+  color: #0b1220;
+  font-size: 0.93rem;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+body[data-page="connect"] .connect-detail a {
+  color: inherit;
+}
+
+body[data-page="connect"] .connect-detail a:hover {
+  color: #0b63ce;
+}
+
+body[data-page="connect"] .connect-detail a:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 body[data-page="connect"] .connect-primary-actions {
   display: grid;
   gap: 0.8rem;
@@ -1496,9 +1545,9 @@ body[data-page="connect"] .connect-feedback[hidden] {
 }
 
 body[data-page="connect"] .connect-form-card {
-  background: linear-gradient(165deg, rgba(15, 44, 78, 0.98) 0%, rgba(21, 63, 103, 0.98) 56%, rgba(11, 34, 62, 0.99) 100%);
-  border-color: rgba(111, 156, 206, 0.34);
-  color: #f8fbff;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(127, 164, 194, 0.24);
+  color: #0b1220;
 }
 
 body[data-page="connect"] .connect-form-card .section-title {
@@ -1506,18 +1555,18 @@ body[data-page="connect"] .connect-form-card .section-title {
 }
 
 body[data-page="connect"] .connect-form-card .kicker {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
-  color: #e7f2ff;
+  background: rgba(11, 99, 206, 0.08);
+  border-color: rgba(11, 99, 206, 0.12);
+  color: #0b3d73;
 }
 
 body[data-page="connect"] .connect-form-card h2 {
-  color: #ffffff;
+  color: #0b1220;
   font-size: clamp(1.45rem, 2.6vw, 2.05rem);
 }
 
 body[data-page="connect"] .connect-form-card .lead {
-  color: rgba(236, 245, 255, 0.88);
+  color: #526275;
   max-width: none;
 }
 
@@ -1526,27 +1575,27 @@ body[data-page="connect"] .connect-form {
 }
 
 body[data-page="connect"] .connect-form label {
-  color: #f8fbff;
+  color: #0b1220;
 }
 
 body[data-page="connect"] .connect-form input,
 body[data-page="connect"] .connect-form textarea,
 body[data-page="connect"] .connect-form select {
-  background: rgba(6, 20, 38, 0.58);
-  border-color: rgba(192, 205, 220, 0.4);
-  color: #f5f8ff;
+  background: #ffffff;
+  border-color: rgba(127, 164, 194, 0.24);
+  color: #0b1220;
 }
 
 body[data-page="connect"] .connect-form input::placeholder,
 body[data-page="connect"] .connect-form textarea::placeholder {
-  color: rgba(245, 248, 255, 0.58);
+  color: #7b8a9c;
 }
 
 body[data-page="connect"] .connect-consent {
   display: flex;
   align-items: flex-start;
   gap: 0.55rem;
-  color: #f8fbff;
+  color: #0b1220;
   font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.4;
@@ -1566,15 +1615,15 @@ body[data-page="connect"] .connect-form .status-message {
 }
 
 body[data-page="connect"] .connect-form .status-message.error {
-  background: rgba(143, 35, 23, 0.18);
-  border-color: rgba(243, 181, 175, 0.46);
-  color: #ffd6d1;
+  background: rgba(143, 35, 23, 0.12);
+  border-color: rgba(143, 35, 23, 0.28);
+  color: #7f1d1d;
 }
 
 body[data-page="connect"] .connect-form .status-message.success {
-  background: rgba(92, 153, 121, 0.16);
-  border-color: rgba(146, 209, 171, 0.34);
-  color: #ecfff3;
+  background: rgba(11, 99, 206, 0.08);
+  border-color: rgba(11, 99, 206, 0.18);
+  color: #0b3d73;
 }
 
 body[data-page="connect"] .connect-primary-actions .connect-save,
