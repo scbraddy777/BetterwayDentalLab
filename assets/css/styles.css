@@ -1397,7 +1397,7 @@ body[data-page="connect"] .connect-profile {
 
 body[data-page="connect"] .connect-headshot {
   justify-self: center;
-  width: clamp(5.25rem, 8vw, 6rem);
+  width: clamp(6.56rem, 10vw, 7.5rem);
   aspect-ratio: 1;
   padding: 0.3rem;
   border-radius: 50%;
