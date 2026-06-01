@@ -1451,11 +1451,19 @@ body[data-page="connect"] .connect-summary {
   max-width: 42ch;
 }
 
-body[data-page="connect"] .connect-save {
+body[data-page="connect"] .connect-save,
+body[data-page="connect"] .connect-website {
   width: 100%;
   min-height: 3.65rem;
-  margin-top: 0.25rem;
   font-size: 1rem;
+}
+
+body[data-page="connect"] .connect-save {
+  margin-top: 0.25rem;
+}
+
+body[data-page="connect"] .connect-website {
+  margin-top: 0.85rem;
 }
 
 body[data-page="connect"] .connect-actions-card .section-title {
@@ -1529,7 +1537,8 @@ body[data-page="connect"] .connect-action:visited {
 }
 
 body[data-page="connect"] .connect-action:focus-visible,
-body[data-page="connect"] .connect-save:focus-visible {
+body[data-page="connect"] .connect-save:focus-visible,
+body[data-page="connect"] .connect-website:focus-visible {
   outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
