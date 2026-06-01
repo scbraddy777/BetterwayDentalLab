@@ -61,7 +61,8 @@ Set these in Netlify if you want approval and label emails:
 - The page is intentionally hidden from nav, footer, and sitemap, and marked `noindex, nofollow`.
 - Update contact details in both `/connect.html` and `/public/better-way-dental-lab.vcf` together so the QR page and imported contact card stay in sync.
 - Replace the connect-page logo by swapping the image in `/assets/images/Reduced Logo transparent.png` or updating the `<img>` in `/connect.html`.
-- Add future action buttons inside the `.connect-action-grid` block in `/connect.html`.
+- Add future action buttons inside the `.connect-primary-actions` block in `/connect.html`.
+- The right side of `/connect.html` uses the general inquiry form pattern and submits through Web3Forms for callback requests.
 - The vCard file is stored at `/public/better-way-dental-lab.vcf` and is also exposed at `/better-way-dental-lab.vcf` for a cleaner download URL.
 
 ## Local Preview

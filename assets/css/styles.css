@@ -1451,8 +1451,16 @@ body[data-page="connect"] .connect-summary {
   max-width: 42ch;
 }
 
+body[data-page="connect"] .connect-primary-actions {
+  display: grid;
+  gap: 0.8rem;
+}
+
 body[data-page="connect"] .connect-save,
-body[data-page="connect"] .connect-website {
+body[data-page="connect"] .connect-website,
+body[data-page="connect"] .connect-call,
+body[data-page="connect"] .connect-email,
+body[data-page="connect"] .connect-submit {
   width: 100%;
   min-height: 3.65rem;
   font-size: 1rem;
@@ -1462,89 +1470,8 @@ body[data-page="connect"] .connect-save {
   margin-top: 0.25rem;
 }
 
-body[data-page="connect"] .connect-website {
-  margin-top: 0.85rem;
-}
-
-body[data-page="connect"] .connect-actions-card .section-title {
-  margin-bottom: 0.85rem;
-}
-
-body[data-page="connect"] .connect-actions-card .kicker {
-  background: rgba(11, 99, 206, 0.08);
-  border-color: rgba(11, 99, 206, 0.12);
-  color: #0b3d73;
-}
-
-body[data-page="connect"] .connect-actions-card h2 {
-  color: #0b1220;
-  font-size: clamp(1.35rem, 2.35vw, 1.95rem);
-}
-
-body[data-page="connect"] .connect-actions-card .lead {
-  color: #526275;
-  max-width: none;
-}
-
-body[data-page="connect"] .connect-action-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-}
-
-body[data-page="connect"] .connect-action-grid > .connect-action:last-child {
-  grid-column: 1 / -1;
-}
-
-body[data-page="connect"] .connect-action {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.2rem;
-  min-height: 4.8rem;
-  padding: 0.95rem 1rem;
-  border-radius: 20px;
-  border: 1px solid rgba(127, 164, 194, 0.22);
-  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
-  box-shadow: 0 10px 20px rgba(12, 31, 52, 0.08);
-  color: #0b1220;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-}
-
-body[data-page="connect"] .connect-action span {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-body[data-page="connect"] .connect-action small {
-  color: #5b6b7e;
-  font-size: 0.86rem;
-}
-
-body[data-page="connect"] .connect-action:hover {
-  transform: translateY(-1px);
-  border-color: rgba(11, 99, 206, 0.28);
-  box-shadow: 0 12px 26px rgba(12, 31, 52, 0.11);
-  color: #0b1220;
-}
-
-body[data-page="connect"] .connect-action:active {
-  transform: translateY(0);
-}
-
-body[data-page="connect"] .connect-action:visited {
-  color: #0b1220;
-}
-
-body[data-page="connect"] .connect-action:focus-visible,
-body[data-page="connect"] .connect-save:focus-visible,
-body[data-page="connect"] .connect-website:focus-visible {
-  outline: 2px solid var(--focus-ring);
-  outline-offset: 3px;
-}
-
 body[data-page="connect"] .connect-note {
-  margin-top: 1rem;
+  margin-top: 0.05rem;
   font-size: 0.84rem;
   color: #5b6b7e;
 }
@@ -1554,7 +1481,7 @@ body[data-page="connect"] .connect-note strong {
 }
 
 body[data-page="connect"] .connect-feedback {
-  margin-top: 0.95rem;
+  margin-top: 0.05rem;
   padding: 0.78rem 0.95rem;
   border-radius: 16px;
   border: 1px solid rgba(11, 99, 206, 0.14);
@@ -1566,6 +1493,112 @@ body[data-page="connect"] .connect-feedback {
 
 body[data-page="connect"] .connect-feedback[hidden] {
   display: none;
+}
+
+body[data-page="connect"] .connect-form-card {
+  background: linear-gradient(165deg, rgba(15, 44, 78, 0.98) 0%, rgba(21, 63, 103, 0.98) 56%, rgba(11, 34, 62, 0.99) 100%);
+  border-color: rgba(111, 156, 206, 0.34);
+  color: #f8fbff;
+}
+
+body[data-page="connect"] .connect-form-card .section-title {
+  margin-bottom: 0.85rem;
+}
+
+body[data-page="connect"] .connect-form-card .kicker {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e7f2ff;
+}
+
+body[data-page="connect"] .connect-form-card h2 {
+  color: #ffffff;
+  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+}
+
+body[data-page="connect"] .connect-form-card .lead {
+  color: rgba(236, 245, 255, 0.88);
+  max-width: none;
+}
+
+body[data-page="connect"] .connect-form {
+  gap: 0.88rem;
+}
+
+body[data-page="connect"] .connect-form label {
+  color: #f8fbff;
+}
+
+body[data-page="connect"] .connect-form input,
+body[data-page="connect"] .connect-form textarea,
+body[data-page="connect"] .connect-form select {
+  background: rgba(6, 20, 38, 0.58);
+  border-color: rgba(192, 205, 220, 0.4);
+  color: #f5f8ff;
+}
+
+body[data-page="connect"] .connect-form input::placeholder,
+body[data-page="connect"] .connect-form textarea::placeholder {
+  color: rgba(245, 248, 255, 0.58);
+}
+
+body[data-page="connect"] .connect-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  color: #f8fbff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+body[data-page="connect"] .connect-consent input {
+  width: auto;
+  margin-top: 0.15rem;
+}
+
+body[data-page="connect"] .connect-submit {
+  margin-top: 0.1rem;
+}
+
+body[data-page="connect"] .connect-form .status-message {
+  margin-top: 0.12rem;
+}
+
+body[data-page="connect"] .connect-form .status-message.error {
+  background: rgba(143, 35, 23, 0.18);
+  border-color: rgba(243, 181, 175, 0.46);
+  color: #ffd6d1;
+}
+
+body[data-page="connect"] .connect-form .status-message.success {
+  background: rgba(92, 153, 121, 0.16);
+  border-color: rgba(146, 209, 171, 0.34);
+  color: #ecfff3;
+}
+
+body[data-page="connect"] .connect-primary-actions .connect-save,
+body[data-page="connect"] .connect-primary-actions .connect-website {
+  margin-top: 0;
+}
+
+body[data-page="connect"] .connect-primary-actions .connect-call,
+body[data-page="connect"] .connect-primary-actions .connect-email {
+  border-color: rgba(10, 86, 176, 0.32);
+}
+
+body[data-page="connect"] .connect-primary-actions .connect-call:hover,
+body[data-page="connect"] .connect-primary-actions .connect-email:hover {
+  border-color: rgba(10, 86, 176, 0.44);
+}
+
+body[data-page="connect"] .connect-save:focus-visible,
+body[data-page="connect"] .connect-website:focus-visible,
+body[data-page="connect"] .connect-call:focus-visible,
+body[data-page="connect"] .connect-email:focus-visible,
+body[data-page="connect"] .connect-submit:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 [data-reveal] {
@@ -1732,14 +1765,6 @@ body[data-page="connect"] .connect-feedback[hidden] {
 
   body[data-page="connect"] .connect-panel {
     border-radius: 24px;
-  }
-
-  body[data-page="connect"] .connect-action-grid {
-    grid-template-columns: 1fr;
-  }
-
-  body[data-page="connect"] .connect-action {
-    min-height: 4.25rem;
   }
 
   body[data-page="connect"] .connect-profile h1 {

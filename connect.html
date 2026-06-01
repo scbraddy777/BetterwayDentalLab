@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Better Way Dental Lab | Connect</title>
-  <meta name="description" content="Save the Better Way Dental Lab contact card, call the lab, email our team, or visit the website from one simple QR destination.">
+  <meta name="description" content="Save the Better Way Dental Lab contact card, visit our website, call the lab, email our team, or request a callback from one simple QR destination.">
   <meta name="robots" content="noindex, nofollow">
   <meta property="og:title" content="Better Way Dental Lab | Connect">
-  <meta property="og:description" content="Scan to save our contact, visit our website, or start your next case.">
+  <meta property="og:description" content="Scan to save our contact, visit our website, or request a callback from our team.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.betterwaydentallab.com/connect">
   <meta property="og:image" content="https://www.betterwaydentallab.com/assets/images/social-preview-white.png">
@@ -15,7 +15,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Better Way Dental Lab | Connect">
-  <meta name="twitter:description" content="Scan to save our contact, visit our website, or start your next case.">
+  <meta name="twitter:description" content="Scan to save our contact, visit our website, or request a callback from our team.">
   <meta name="twitter:image" content="https://www.betterwaydentallab.com/assets/images/social-preview-white.png">
   <meta name="theme-color" content="#f8fbff">
   <meta name="format-detection" content="telephone=no">
@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20260601">
   <link rel="icon" href="/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 </head>
@@ -40,47 +40,77 @@
           <p class="connect-title">Lab Coordinator</p>
           <p class="connect-location">455 Church Street · Fayetteville, GA 30214</p>
         </div>
-        <a class="btn btn-primary connect-save" href="/better-way-dental-lab.vcf" download="better-way-dental-lab.vcf" data-event="click_connect_save_contact">Save Contact</a>
-        <p class="connect-note"><strong>Best on mobile:</strong> tapping Save Contact downloads a vCard optimized for iPhone and Android contact import.</p>
-        <a class="btn btn-primary connect-website" href="/" data-event="click_connect_website">Visit our Website</a>
+        <div class="connect-primary-actions">
+          <a class="btn btn-primary connect-save connect-cta" href="/better-way-dental-lab.vcf" download="better-way-dental-lab.vcf" data-event="click_connect_save_contact">Save Contact</a>
+          <p class="connect-note"><strong>Best on mobile:</strong> tapping Save Contact downloads a vCard optimized for iPhone and Android contact import.</p>
+          <a class="btn btn-primary connect-website connect-cta" href="/" data-event="click_connect_website">Visit our Website</a>
+          <a class="btn btn-primary connect-call connect-cta" href="tel:4045006368" data-copy-phone="4045006368" data-event="click_connect_call_office">Call Office</a>
+          <a class="btn btn-primary connect-call connect-cta" href="tel:6788578524" data-copy-phone="6788578524" data-event="click_connect_call_mobile">Call Mobile</a>
+          <a class="btn btn-primary connect-email connect-cta" href="mailto:BetterWayDentalLab@gmail.com" data-event="click_connect_email">Email Us</a>
+          <p class="connect-feedback" aria-live="polite" role="status" hidden></p>
+        </div>
       </section>
 
-      <section class="connect-panel connect-actions-card" aria-labelledby="connect-actions-title">
+      <section class="connect-panel connect-form-card" aria-labelledby="connect-form-title">
         <div class="section-title">
-          <span class="kicker">Quick access</span>
-          <h2 id="connect-actions-title">Reach our team in one tap</h2>
-          <p class="lead">Choose the quickest next step for your visit, case, or follow-up.</p>
+          <span class="kicker">General inquiry</span>
+          <h2 id="connect-form-title">Send a General Inquiry</h2>
+          <p class="lead">Fill this out and one of our team members will call you back as soon as possible.</p>
         </div>
 
-        <div class="connect-action-grid" aria-label="Primary contact actions">
-          <a class="connect-action" href="tel:4045006368" data-copy-phone="4045006368" data-event="click_connect_call_office">
-            <span>Call Office</span>
-            <small>(404) 500-6368</small>
-          </a>
-          <a class="connect-action" href="tel:6788578524" data-copy-phone="6788578524" data-event="click_connect_call_mobile">
-            <span>Call Mobile</span>
-            <small>(678) 857-8524</small>
-          </a>
-          <a class="connect-action" href="mailto:BetterWayDentalLab@gmail.com" data-event="click_connect_email">
-            <span>Email Us</span>
-            <small>BetterWayDentalLab@gmail.com</small>
-          </a>
-          <a class="connect-action" href="https://www.google.com/maps/search/?api=1&query=455%20Church%20Street%2C%20Fayetteville%2C%20GA%2030214" target="_blank" rel="noopener noreferrer" data-event="click_connect_directions">
-            <span>Get Directions</span>
-            <small>455 Church Street</small>
-          </a>
-        </div>
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+          class="form-grid connect-form"
+          data-track-form
+          name="connect-callback"
+        >
+          <input type="hidden" name="access_key" value="3c8226d7-aab1-44be-a758-4da1bcc221b5">
+          <input type="hidden" name="subject" value="Better Way Dental Lab Callback Request">
+          <input type="hidden" name="redirect" value="https://www.betterwaydentallab.com/thank-you.html">
 
-        <!-- Future-ready action slots:
-          Upload Case
-          Doctor Signup
-          Instagram
-          Patient Portal
-          Case Tracking
-          CRM lead capture
-        -->
+          <div class="field">
+            <label for="connect-name">Name / Practice *</label>
+            <input id="connect-name" name="name_practice" type="text" required>
+          </div>
 
-        <p class="connect-feedback" aria-live="polite" role="status" hidden></p>
+          <div class="field">
+            <label for="connect-email">Email *</label>
+            <input id="connect-email" name="email" type="email" required>
+          </div>
+
+          <div class="field">
+            <label for="connect-phone">Phone *</label>
+            <input id="connect-phone" name="phone" type="tel" required>
+          </div>
+
+          <div class="field">
+            <label for="connect-topic">Topic *</label>
+            <select id="connect-topic" name="topic" required>
+              <option value="">Select topic</option>
+              <option>Request a callback</option>
+              <option>New account information</option>
+              <option>Turnaround and scheduling</option>
+              <option>Service capabilities</option>
+              <option>General question</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="connect-message">Message *</label>
+            <textarea id="connect-message" name="message" required placeholder="Share a few details and the best time to call."></textarea>
+          </div>
+
+          <div class="field">
+            <label class="connect-consent" for="connect-consent">
+              <input id="connect-consent" name="consent" type="checkbox" value="agreed" required>
+              I consent to be contacted about this inquiry. *
+            </label>
+          </div>
+
+          <button class="btn btn-primary connect-submit" type="submit">Request a Callback</button>
+          <p class="status-message" data-form-status aria-live="polite"></p>
+        </form>
       </section>
     </div>
   </main>

@@ -105,7 +105,7 @@
       connectFeedback.textContent = message;
     }
 
-    document.querySelectorAll(".connect-action[href^='tel:']").forEach(function (link) {
+    document.querySelectorAll("[data-copy-phone]").forEach(function (link) {
       link.addEventListener("click", function (event) {
         if (!isDesktopLike) {
           return;
