@@ -1685,6 +1685,80 @@ body[data-page="connect"] .connect-submit:focus-visible {
   outline-offset: 3px;
 }
 
+body[data-page="connect"] .connect-social-panel {
+  margin-top: clamp(0.9rem, 1.8vw, 1.25rem);
+  display: grid;
+  gap: 0.95rem;
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(127, 164, 194, 0.24);
+  color: #0b1220;
+}
+
+body[data-page="connect"] .connect-social-panel .section-title {
+  margin-bottom: 0.1rem;
+}
+
+body[data-page="connect"] .connect-social-panel .kicker {
+  background: rgba(11, 99, 206, 0.08);
+  border-color: rgba(11, 99, 206, 0.12);
+  color: #0b3d73;
+}
+
+body[data-page="connect"] .connect-social-panel h2 {
+  color: #0b1220;
+  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+}
+
+body[data-page="connect"] .connect-social-panel .lead {
+  color: #526275;
+  max-width: 48rem;
+}
+
+body[data-page="connect"] .connect-social-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+body[data-page="connect"] .connect-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(5.4rem, 8vw, 6.2rem);
+  border-radius: 22px;
+  border: 1px solid rgba(127, 164, 194, 0.24);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+  color: #0b3d73;
+  box-shadow: 0 12px 26px rgba(9, 25, 46, 0.09);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+body[data-page="connect"] .connect-social-link:hover,
+body[data-page="connect"] .connect-social-link:focus-visible {
+  transform: translateY(-2px);
+  background: linear-gradient(145deg, #38b6ff 0%, #0d6fda 52%, #083f86 100%);
+  border-color: rgba(11, 99, 206, 0.38);
+  color: #ffffff;
+  box-shadow: 0 14px 30px rgba(4, 30, 62, 0.16);
+}
+
+body[data-page="connect"] .connect-social-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+body[data-page="connect"] .connect-social-link svg {
+  width: clamp(2rem, 3vw, 2.4rem);
+  height: clamp(2rem, 3vw, 2.4rem);
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
 [data-reveal] {
   opacity: 1;
   transform: none;
@@ -1853,5 +1927,15 @@ body[data-page="connect"] .connect-submit:focus-visible {
 
   body[data-page="connect"] .connect-profile h1 {
     font-size: clamp(2.25rem, 11vw, 3.05rem);
+  }
+
+  body[data-page="connect"] .connect-social-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  body[data-page="connect"] .connect-social-link {
+    min-height: 5.2rem;
+    border-radius: 20px;
   }
 }
