@@ -32,6 +32,7 @@
           <div class="nav-dropdown-menu" id="support-menu" role="menu">
             <a href="/contact.html" role="menuitem">Contact Us</a>
             <a href="/case-feedback" role="menuitem">Case Feedback</a>
+            <a href="/workflow.html#send-a-case" role="menuitem">How to Send a Case</a>
             <a href="/terms-of-service.html" role="menuitem">Terms of Service</a>
           </div>
         </div>
@@ -91,6 +92,151 @@
               <li>Packaging and shipment details confirmed before dispatch</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section send-case-section" id="send-a-case">
+      <div class="container">
+        <div class="section-title" data-reveal>
+          <span class="kicker">CASE INTAKE</span>
+          <h2>How to Send a Case</h2>
+          <p class="lead">Use the Dentist Portal for the fastest case intake. If you are sending a digital scan through IOS software, tap your scanner brand below to see the handoff steps and lab lookup details.</p>
+        </div>
+
+        <div class="grid-2 send-case-summary">
+          <article class="card send-case-step" data-reveal>
+            <span class="send-case-step-label">Protocol 01</span>
+            <h3>Physical Cases</h3>
+            <ul class="checklist">
+              <li>Pack models or impressions securely and label them clearly.</li>
+              <li>Include shade, bite, and any notes that affect design or seating.</li>
+              <li>Use the Dentist Portal or contact the lab if the case is time sensitive.</li>
+            </ul>
+          </article>
+
+          <article class="card send-case-step" data-reveal>
+            <span class="send-case-step-label">Protocol 02</span>
+            <h3>Digital STL Uploads</h3>
+            <ul class="checklist">
+              <li>Export the crown or bridge files as STL whenever possible.</li>
+              <li>Attach the lab RX or your case notes with the submission.</li>
+              <li>If your software asks for a destination email, use <a href="mailto:digitalbetterwaydentallab@gmail.com">digitalbetterwaydentallab@gmail.com</a>.</li>
+            </ul>
+          </article>
+        </div>
+
+        <article class="panel send-case-scanner" data-reveal data-scanner-selector>
+          <div class="send-case-scanner-header">
+            <span class="send-case-step-label">Protocol 03</span>
+            <h3>Select Your Scanner</h3>
+            <p class="lead">Tap a scanner brand to reveal the submission steps, case ID guidance, and the lab lookup information.</p>
+          </div>
+
+          <div class="send-case-lookup">
+            <div class="send-case-lookup-item">
+              <span class="send-case-lookup-label">Lab Name</span>
+              <strong>Better Way Dental Lab</strong>
+            </div>
+            <div class="send-case-lookup-item">
+              <span class="send-case-lookup-label">Search Email</span>
+              <strong><a href="mailto:digitalbetterwaydentallab@gmail.com">digitalbetterwaydentallab@gmail.com</a></strong>
+            </div>
+          </div>
+
+          <div class="send-case-tabs" aria-label="IOS scanner brands">
+            <button class="send-case-tab is-active" type="button" data-scanner-tab="scanner-3shape" aria-pressed="true">3Shape</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-dexis" aria-pressed="false">Dexis</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-meditlink" aria-pressed="false">MeditLink</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-itero" aria-pressed="false">iTero</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-sirona" aria-pressed="false">Sirona</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-dscore" aria-pressed="false">DS Core</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-shining3d" aria-pressed="false">Shining 3D</button>
+            <button class="send-case-tab" type="button" data-scanner-tab="scanner-straumann" aria-pressed="false">Straumann AXS</button>
+          </div>
+
+          <div class="send-case-panels">
+            <article class="send-case-panel-content is-active" id="scanner-3shape" data-scanner-panel>
+              <h4>3Shape Communicate</h4>
+              <ul class="checklist">
+                <li>Transmit the case through Trios Inbox or 3Shape Communicate.</li>
+                <li>Search for Better Way Dental Lab if your portal needs a lab lookup.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-dexis" data-scanner-panel hidden>
+              <h4>Dexis</h4>
+              <ul class="checklist">
+                <li>Transmit the case through Dexis Portal or Dexis Connect.</li>
+                <li>Search for Better Way Dental Lab in the portal if a lab lookup is required.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-meditlink" data-scanner-panel hidden>
+              <h4>MeditLink</h4>
+              <ul class="checklist">
+                <li>Find Better Way Dental Lab in MeditLink and transmit the case through the portal.</li>
+                <li>If the software asks for an email lookup, use the address shown above.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-itero" data-scanner-panel hidden>
+              <h4>iTero</h4>
+              <ul class="checklist">
+                <li>Transmit the case through MyiTero.</li>
+                <li>Search for Better Way Dental Lab in the portal if your version uses a lab lookup.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-sirona" data-scanner-panel hidden>
+              <h4>Sirona</h4>
+              <ul class="checklist">
+                <li>Transmit the case through Sirona CaseConnect or DS Core, depending on your software.</li>
+                <li>Search for Better Way Dental Lab or use the email shown above if prompted.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-dscore" data-scanner-panel hidden>
+              <h4>DS Core</h4>
+              <ul class="checklist">
+                <li>Transmit the case through DS Core.</li>
+                <li>Search for Better Way Dental Lab in the portal if a lab lookup is required.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-shining3d" data-scanner-panel hidden>
+              <h4>Shining 3D</h4>
+              <ul class="checklist">
+                <li>Transmit the case through Shining3D Cloud.</li>
+                <li>Search for Better Way Dental Lab or use the email shown above if prompted.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+
+            <article class="send-case-panel-content" id="scanner-straumann" data-scanner-panel hidden>
+              <h4>Straumann AXS</h4>
+              <ul class="checklist">
+                <li>Transmit the case through Straumann AXS.</li>
+                <li>Search for Better Way Dental Lab or use the email shown above if prompted.</li>
+                <li>Keep the case ID consistent with the RX and office records.</li>
+              </ul>
+            </article>
+          </div>
+        </article>
+
+        <div class="notice send-case-note" data-reveal>
+          No matter which scanner you use, include the patient or case name, restoration type, shade, and any photos or bite records that help the lab verify the case.
+        </div>
+
+        <div class="hero-cta" data-reveal>
+          <a class="btn btn-primary" href="https://betterwayclient.seazona.app/" target="_blank" rel="noopener noreferrer">Open Dentist Portal</a>
+          <a class="btn btn-outline" href="/contact.html">Contact the Lab Team</a>
         </div>
       </div>
     </section>

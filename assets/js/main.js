@@ -125,6 +125,47 @@
     });
   }
 
+  function bindScannerSelectors() {
+    var selectors = document.querySelectorAll("[data-scanner-selector]");
+
+    if (!selectors.length) {
+      return;
+    }
+
+    selectors.forEach(function (selector) {
+      var tabs = Array.prototype.slice.call(selector.querySelectorAll("[data-scanner-tab]"));
+      var panels = Array.prototype.slice.call(selector.querySelectorAll("[data-scanner-panel]"));
+
+      if (!tabs.length || !panels.length) {
+        return;
+      }
+
+      function activate(panelId) {
+        tabs.forEach(function (tab) {
+          var isActive = tab.getAttribute("data-scanner-tab") === panelId;
+          tab.classList.toggle("is-active", isActive);
+          tab.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        panels.forEach(function (panel) {
+          var isActive = panel.id === panelId;
+          panel.hidden = !isActive;
+          panel.classList.toggle("is-active", isActive);
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          activate(tab.getAttribute("data-scanner-tab"));
+        });
+      });
+
+      activate(tabs[0].getAttribute("data-scanner-tab"));
+    });
+  }
+
+  bindScannerSelectors();
+
   document.querySelectorAll("[data-event]").forEach(function (node) {
     node.addEventListener("click", function () {
       var eventName = node.getAttribute("data-event");
