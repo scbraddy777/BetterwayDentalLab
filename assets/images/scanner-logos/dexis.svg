@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 64" role="img" aria-labelledby="title desc">
-  <title>Dexis logo</title>
-  <desc>Orange circular icon with Dexis wordmark.</desc>
-  <circle cx="28" cy="32" r="15" fill="none" stroke="#ef6c39" stroke-width="5"/>
-  <circle cx="28" cy="32" r="7" fill="none" stroke="#ef6c39" stroke-width="5" opacity="0.8"/>
-  <text x="58" y="42" fill="#232933" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="-0.04em">DEXIS</text>
-</svg>
