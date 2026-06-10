@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" role="img" aria-labelledby="title desc">
+  <title>Sirona logo</title>
+  <desc>Orange and gray Sirona wordmark.</desc>
+  <rect x="6" y="15" width="28" height="24" rx="2.5" fill="#ef9a4a"/>
+  <text x="20" y="32" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">s</text>
+  <text x="40" y="42" fill="#4b5563" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="-0.04em">irona</text>
+  <text x="41" y="57" fill="#8a919d" font-family="Arial, Helvetica, sans-serif" font-size="8" font-weight="700" letter-spacing="0.28em">THE DENTAL COMPANY</text>
+</svg>
