@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title>iTero logo badge</title>
+  <desc>Blue iTero mark on a white square background.</desc>
+  <defs>
+    <linearGradient id="itero-circle" x1="34" y1="24" x2="94" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4a88c8"/>
+      <stop offset="1" stop-color="#1f5f9a"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="126" height="126" rx="16" fill="#ffffff" stroke="#dbe5f1" stroke-width="2"/>
+  <circle cx="64" cy="52" r="24" fill="url(#itero-circle)"/>
+  <text x="64" y="58" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="-0.02em">iTero</text>
+</svg>
