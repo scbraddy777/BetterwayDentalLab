@@ -1499,6 +1499,12 @@ select:focus {
   box-shadow: 0 8px 16px rgba(3, 14, 31, 0.12);
 }
 
+.send-case-tab-logo--large {
+  height: clamp(2.4rem, 3.3vw, 3.45rem);
+  max-width: 90%;
+  padding: 0.2rem 0.5rem;
+}
+
 .send-case-tab:hover,
 .send-case-tab:focus-visible {
   transform: translateY(-2px);
