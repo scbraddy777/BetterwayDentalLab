@@ -37,6 +37,16 @@
   status = 200
 
 [[redirects]]
+  from = "/onboarding-request"
+  to = "/onboarding-request.html"
+  status = 200
+
+[[redirects]]
+  from = "/onboarding-request/"
+  to = "/onboarding-request.html"
+  status = 200
+
+[[redirects]]
   from = "/connect"
   to = "/connect.html"
   status = 200
@@ -47,8 +57,38 @@
   status = 200
 
 [[redirects]]
+  from = "/artie-ricaud"
+  to = "/artie-ricaud.html"
+  status = 200
+
+[[redirects]]
+  from = "/artie-ricaud/"
+  to = "/artie-ricaud.html"
+  status = 200
+
+[[redirects]]
+  from = "/connect-artie"
+  to = "/artie-ricaud.html"
+  status = 200
+
+[[redirects]]
+  from = "/connect-artie/"
+  to = "/artie-ricaud.html"
+  status = 200
+
+[[redirects]]
   from = "/better-way-dental-lab.vcf"
   to = "/public/better-way-dental-lab.vcf"
+  status = 200
+
+[[redirects]]
+  from = "/artie-ricaud.vcf"
+  to = "/public/artie-ricaud.vcf"
+  status = 200
+
+[[redirects]]
+  from = "/connect-artie.vcf"
+  to = "/public/artie-ricaud.vcf"
   status = 200
 
 [[redirects]]
@@ -124,6 +164,51 @@
     X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
+  for = "/onboarding-request"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/onboarding-request.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/onboarding-request/"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/artie-ricaud"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/artie-ricaud.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/artie-ricaud/"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/connect-artie"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/connect-artie.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/connect-artie/"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
   for = "/public/better-way-dental-lab.vcf"
   [headers.values]
     Content-Type = "text/vcard; charset=utf-8"
@@ -134,3 +219,21 @@
   [headers.values]
     Content-Type = "text/vcard; charset=utf-8"
     Content-Disposition = 'attachment; filename="better-way-dental-lab.vcf"'
+
+[[headers]]
+  for = "/public/artie-ricaud.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = 'attachment; filename="artie-ricaud.vcf"'
+
+[[headers]]
+  for = "/artie-ricaud.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = 'attachment; filename="artie-ricaud.vcf"'
+
+[[headers]]
+  for = "/connect-artie.vcf"
+  [headers.values]
+    Content-Type = "text/vcard; charset=utf-8"
+    Content-Disposition = 'attachment; filename="artie-ricaud.vcf"'

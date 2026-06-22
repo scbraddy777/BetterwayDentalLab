@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Ricaud;Artie;;;
+FN:Artie Ricaud
+ORG:Better Way Dental Lab
+TITLE:Founder & Owner
+NOTE:DDS, CDT
+TEL;TYPE=WORK,VOICE:404-500-6368
+TEL;TYPE=CELL,VOICE:470-345-3884
+EMAIL;TYPE=INTERNET,PREF:Artricau@betterwaydentallab.com
+URL:https://www.betterwaydentallab.com
+ADR;TYPE=WORK:;;455 Church Street;Fayetteville;GA;30214;USA
+LABEL;TYPE=WORK:455 Church Street\nFayetteville, GA 30214
+END:VCARD
