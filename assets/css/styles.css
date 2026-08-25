@@ -3416,3 +3416,9 @@ select:focus {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Keep the homepage headline inside its grid column at desktop widths. */
+body[data-page="home"] .hero h1 {
+  max-width: none;
+  font-size: clamp(2.7rem, 4vw, 3.7rem);
+}
