@@ -258,6 +258,53 @@
     });
   }
 
+  function bindMobileNavigation() {
+    var navWrap = document.querySelector(".nav-wrap");
+    var navLinks = navWrap ? navWrap.querySelector(".nav-links") : null;
+    var headerActions = navWrap ? navWrap.querySelector(".header-actions") : null;
+
+    if (!navWrap || !navLinks || !headerActions) {
+      return;
+    }
+
+    if (!navLinks.id) {
+      navLinks.id = "primary-navigation";
+    }
+
+    var toggle = document.createElement("button");
+    toggle.className = "nav-menu-toggle";
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", navLinks.id);
+    toggle.setAttribute("aria-label", "Open navigation menu");
+    toggle.innerHTML = '<span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>';
+    navWrap.insertBefore(toggle, navLinks);
+    navWrap.classList.add("has-mobile-nav");
+
+    function setMenuOpen(isOpen) {
+      navWrap.classList.toggle("is-menu-open", isOpen);
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    }
+
+    toggle.addEventListener("click", function () {
+      setMenuOpen(!navWrap.classList.contains("is-menu-open"));
+    });
+
+    navWrap.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navWrap.classList.contains("is-menu-open")) {
+        setMenuOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 900) {
+        setMenuOpen(false);
+      }
+    });
+  }
+
   document.querySelectorAll("form[data-track-form]").forEach(function (form) {
     var statusNode = form.querySelector("[data-form-status]");
     form.addEventListener("submit", function (event) {
@@ -309,4 +356,5 @@
   }
 
   bindNavDropdowns();
+  bindMobileNavigation();
 })();
