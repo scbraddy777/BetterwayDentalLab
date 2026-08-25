@@ -571,12 +571,6 @@ p {
   object-fit: cover;
 }
 
-.hero-card figcaption {
-  padding: 1rem 1.2rem;
-  font-size: 0.9rem;
-  color: var(--panel-text-muted);
-}
-
 .section {
   padding: clamp(2.4rem, 4vw, 3.6rem) 0;
 }
@@ -679,17 +673,6 @@ p {
 
 .lab-story-grid figure:hover img {
   transform: scale(1.025);
-}
-
-.lab-story-grid figcaption {
-  padding: 0.8rem 0.95rem 0.95rem;
-  color: var(--panel-text-muted);
-  font-size: 0.86rem;
-  line-height: 1.45;
-}
-
-.lab-story-grid figcaption strong {
-  color: var(--panel-text);
 }
 
 .lab-story-feature img {
