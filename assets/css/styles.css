@@ -2337,9 +2337,9 @@ body::after {
 
 .brand-logo-wide,
 .brand-logo {
-  width: min(100%, 195px);
+  width: min(100%, 234px);
   height: auto;
-  max-width: 195px;
+  max-width: 234px;
 }
 
 .nav-links {
@@ -3112,7 +3112,7 @@ select:focus {
 
   .brand-logo-wide,
   .brand-logo {
-    max-width: 165px;
+    max-width: 198px;
   }
 
   .nav-links a,
@@ -3143,7 +3143,7 @@ select:focus {
 
   .brand-logo-wide,
   .brand-logo {
-    max-width: 170px;
+    max-width: 204px;
   }
 
   .nav-menu-toggle {
