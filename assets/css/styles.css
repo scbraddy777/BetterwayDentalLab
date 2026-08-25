@@ -3422,3 +3422,36 @@ body[data-page="home"] .hero h1 {
   max-width: none;
   font-size: clamp(2.7rem, 4vw, 3.7rem);
 }
+
+/* Give the brand and primary navigation more presence. */
+.site-header .nav-wrap {
+  min-height: 108px;
+}
+
+.site-header .brand-logo-wide,
+.site-header .brand-logo {
+  width: min(100%, 230px);
+  max-width: 230px;
+}
+
+@media (max-width: 1120px) {
+  .site-header .nav-wrap {
+    min-height: 98px;
+  }
+
+  .site-header .brand-logo-wide,
+  .site-header .brand-logo {
+    max-width: 195px;
+  }
+}
+
+@media (max-width: 900px) {
+  .site-header .nav-wrap {
+    min-height: 84px;
+  }
+
+  .site-header .brand-logo-wide,
+  .site-header .brand-logo {
+    max-width: 185px;
+  }
+}
